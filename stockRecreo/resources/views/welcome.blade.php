@@ -41,6 +41,12 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+
             .content {
                 text-align: center;
             }
@@ -74,6 +80,12 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
+                </div>
+                <div class="top-left links">
+                    <!--
+                    <a href="{{ url('/vistaBD') }}">Base de datos Productos</a>
+                    -->
+                    <a href="{{ route('BDproductos') }}">Base de datos Productos</a>
                 </div>
             @endif
 
