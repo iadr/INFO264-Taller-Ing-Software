@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in {{Auth::user()->name}}!
+                    <div class="links">
+
+                        <a href="{{ route('BDproductos') }}">Base de datos Productos</a>
+                    </div>
                 </div>
             </div>
         </div>
