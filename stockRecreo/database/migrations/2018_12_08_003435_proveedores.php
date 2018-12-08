@@ -13,17 +13,26 @@ class Proveedores extends Migration
      */
     public function up()
     {
-      Schema::create('proveedores', function (Blueprint $table){
+      Schema::enableForeignKeyConstraints();
+
+      if (Schema::hasTable('proveedores')){
+        Schema::drop('proveedores');
+        Schema::dropIfExists('proveedor_producto');
+
+      }
+      Schema::create('proveedores', function($table){
         $table->engine='InnoDB';
         $table->charset='utf8';
         $table->collation='utf8_spanish_ci';
 
-        $table->increments('id');
+        $table->increments('id')->unsigned();;
         $table->string('nombre');
         $table->string('direccion');
         $table->string('representante');
         $table->string('telefono');
         $table->string('email');
+        $table->dateTime('created_at');
+        $table->dateTime('updated_at');
       });
     }
 

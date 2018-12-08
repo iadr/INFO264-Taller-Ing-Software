@@ -13,21 +13,24 @@ class Productos extends Migration
      */
     public function up()
     {
+      Schema::enableForeignKeyConstraints();
+
       if (Schema::hasTable('productos')){
         Schema::drop('productos');
       }
-      Schema::create('productos', function (Blueprint $table){
+      Schema::create('productos', function ($table){
         $table->engine='InnoDB';
         $table->charset='utf8';
         $table->collation='utf8_spanish_ci';
 
-        $table->increments('id');
-        $table->integer('codigo');
+        $table->increments('id')->unsigned();
+        $table->string('codigo');
         $table->string('nombre');
         $table->string('categoria');
         $table->integer('edadminima');
         $table->integer('precio');
         $table->integer('stock');
+        $table->boolean('activo');
       });
     }
 
