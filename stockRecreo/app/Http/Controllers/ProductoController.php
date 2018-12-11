@@ -7,10 +7,13 @@ use App\Producto;
 
 class ProductoController extends Controller
 {
-  public function mostrarTodo()
+  public function despliega()
   {
       $producto = new Producto();
       $prod=$producto->mostrarTodo();
       return view('vistaBDproductos', compact('prod'));
+  }
+  public function busca(){
+
   }
 }

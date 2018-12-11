@@ -12,6 +12,6 @@ class Producto extends Model
     {
         return DB::table('productos')->get();
 
-        
     }
+
 }

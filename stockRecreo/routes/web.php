@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/vistaBDproductos', 'ProductoController@mostrarTodo')->name('BDproductos');
+Route::get('/vistaBDproductos', 'ProductoController@despliega')->name('BDproductos');
