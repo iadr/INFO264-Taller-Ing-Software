@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-      
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -75,7 +75,10 @@
                 </div>
             </div>
         </nav>
-
+        @guest
+        @else
+        @include('layouts.sidebar')
+        @endguest
 
 
 

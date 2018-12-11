@@ -17,16 +17,16 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Inicio</a>
                     @else
                         <!-- <a href="{{ route('register') }}">Register</a> -->
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Ingresar</a>
                     @endauth
                 </div>
 
             @endif
             <!-- <div class="top-left links">
-                
+
                 <a href="{{ route('BDproductos') }}">Base de datos Productos</a>
             </div> -->
             <div class="content">
