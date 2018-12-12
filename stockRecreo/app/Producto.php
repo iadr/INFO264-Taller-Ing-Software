@@ -14,4 +14,10 @@ class Producto extends Model
 
     }
 
+    public function busquedaProductos($termino)
+    {
+    	return DB::table('productos')->where('nombre','like','%'.$termino.'%')
+        	->orderBy('nombre')->get();
+    }
+
 }

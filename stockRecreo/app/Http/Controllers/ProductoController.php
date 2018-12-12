@@ -9,11 +9,16 @@ class ProductoController extends Controller
 {
   public function despliega()
   {
-      $producto = new Producto();
-      $prod=$producto->mostrarTodo();
-      return view('vistaBDproductos', compact('prod'));
+   		$producto = new Producto();
+      	$prod=$producto->mostrarTodo();
+      	return view('vistaBDproductos', compact('prod'));
   }
-  public function busca(){
 
+  public function buscar()
+  {
+  		$termino = \Request::get('busqueda');
+  		$producto = new Producto();
+    	$prod=$producto->busquedaProductos($termino);
+    	return view('vistaBDproductos', compact('prod'));
   }
 }

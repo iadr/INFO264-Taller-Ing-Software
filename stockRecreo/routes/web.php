@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/vistaBDproductos', 'ProductoController@despliega')->name('BDproductos');
-Route::get('/resultadosBusqueda', 'controladorQuery@buscar')->name('Busqueda');
+
+Route::get('/resultadosBusqueda', 'ProductoController@buscar')->name('Busqueda');
+//Route::get('/vistaBDproductos', 'ProductoController@buscar')->name('Busqueda');
