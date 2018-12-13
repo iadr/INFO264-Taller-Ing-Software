@@ -5,7 +5,7 @@
 
 <div class="container">
 
-
+<br>
       <!-- <nav class="navbar navbar-light bg-light">
         <form class="form-inline" action="{{ route('Busqueda') }}" method="GET">
           <input class="form-control mr-sm-2" type="search" placeholder="Ingrese texto a buscar" aria-label="Search" name="busqueda" />
@@ -21,11 +21,11 @@
     </div>
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
 </form>
+<br>
 
   <div class="container">
-    <div class="col-md-8">
-      <div class="row justify-content-center">
-        <table style="width:100%" class="table table-dark" >
+      <div class="table-responsive">
+        <table class="table table-sm table-hover" >
           <tr>
             <th>Nombre del producto</th>
             <th>Categoría</th>
@@ -42,7 +42,6 @@
           @endforeach
         </table>
       </div>
-    </div>
   </div>
 </div>
 </div>
