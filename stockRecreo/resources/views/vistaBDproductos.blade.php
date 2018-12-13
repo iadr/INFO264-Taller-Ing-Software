@@ -17,7 +17,7 @@
   <form class="form-inline" action="{{route('Busqueda')}}" method="GET">
     <div class="form-group mx-sm-3 mb-2">
       <label for="busqueda" class="sr-only">Password</label>
-      <input type="password" class="form-control" id="busqueda" placeholder="Buscar Producto">
+      <input type="search" class="form-control" id="busqueda" placeholder="Buscar Producto" name="busqueda">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
 </form>
