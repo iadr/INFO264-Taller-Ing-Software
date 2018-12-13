@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('css/panel.css')}}">
 <div class="container">
 
-    <div class="row">
+    <div class="row justify-content-center align-items-center">
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>

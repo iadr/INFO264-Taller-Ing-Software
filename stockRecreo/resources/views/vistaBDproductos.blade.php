@@ -5,7 +5,7 @@
 
 <div class="container">
 
-<br>
+
       <!-- <nav class="navbar navbar-light bg-light">
         <form class="form-inline" action="{{ route('Busqueda') }}" method="GET">
           <input class="form-control mr-sm-2" type="search" placeholder="Ingrese texto a buscar" aria-label="Search" name="busqueda" />
@@ -27,13 +27,15 @@
       <div class="table-responsive">
         <table class="table table-sm table-hover" >
           <tr>
-            <th>Nombre del producto</th>
+            <th>Código</th>
+            <th>Nombre</th>
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
           </tr>
           @foreach($prod as $producto)
           <tr>
+            <td>{{$producto->codigo}}</td>
             <td>{{ $producto->nombre }}</td>
             <td>{{ $producto->categoria}}</td>
             <td>{{ $producto->precio }}</td>
