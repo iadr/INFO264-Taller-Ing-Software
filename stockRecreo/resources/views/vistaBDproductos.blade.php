@@ -14,12 +14,22 @@
       </nav>
    -->
 <div class="row">
-  <form class="form-inline" action="{{route('Busqueda')}}" method="GET">
+  <form class="form-inline" action="{{route('Busqueda')}}" method="POST">
+    {{ csrf_field() }}
     <div class="form-group mx-sm-3 mb-2">
-      <label for="busqueda" class="sr-only">Password</label>
-      <input type="search" class="form-control" id="busqueda" placeholder="Buscar Producto" name="busqueda">
+      <label for="busqueda" class="sr-only">Buscar productos</label>
+      <input type="search" class="form-control" id="busqueda" placeholder="Nombre" name="busqueda">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+
+    <button class="btn btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Advanced Search
+    </button>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+
+      </div>
+    </div>
 </form>
 <br>
 
@@ -32,6 +42,7 @@
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Edit</th>
           </tr>
           @foreach($prod as $producto)
           <tr>
@@ -40,6 +51,13 @@
             <td>{{ $producto->categoria}}</td>
             <td>{{ $producto->precio }}</td>
             <td>{{ $producto->stock }}</td>
+            <td>
+              <form action="{{route('editar')}}" method="POST">
+                {{csrf_field()}}
+                 <input type="hidden" name='identificador' value="{{$producto->id}}">
+                 <input type="submit" value="edit">
+              </form>
+            </td>
           </tr>
           @endforeach
         </table>
@@ -47,5 +65,6 @@
   </div>
 </div>
 </div>
+
 
 @endsection

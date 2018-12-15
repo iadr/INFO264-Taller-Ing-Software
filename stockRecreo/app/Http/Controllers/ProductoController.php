@@ -21,4 +21,10 @@ class ProductoController extends Controller
     	$prod=$producto->busquedaProductos($termino);
     	return view('vistaBDproductos', compact('prod'));
   }
+
+  public function editar()
+  {
+    $termino = \Request::get('identificador');
+    return view('edit',['ex'=>$termino]);
+  }
 }

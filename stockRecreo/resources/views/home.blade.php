@@ -19,7 +19,7 @@
                     You are logged in {{Auth::user()->name}}!
                     <div class="links">
 
-                        <!-- <a href="{{ route('BDproductos') }}" class="btn btn-primary">Base de datos Productos</a> -->
+                        <!-- <a href="{{ route('productos') }}" class="btn btn-primary">Base de datos Productos</a> -->
                     </div>
                 </div>
             </div>

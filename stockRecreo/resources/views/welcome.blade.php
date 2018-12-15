@@ -27,7 +27,7 @@
             @endif
             <!-- <div class="top-left links">
 
-                <a href="{{ route('BDproductos') }}">Base de datos Productos</a>
+                <a href="{{ route('productos') }}">Base de datos Productos</a>
             </div> -->
             <div class="content">
                 <div class="title m-b-md">

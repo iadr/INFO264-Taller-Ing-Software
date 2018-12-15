@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/vistaBDproductos', 'ProductoController@despliega')->name('BDproductos');
+Route::get('/productos', 'ProductoController@despliega')->name('productos');
 
-Route::get('/resultadosBusqueda', 'ProductoController@buscar')->name('Busqueda');
+Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
+Route::post('/editarProducto',function(Request $request){
+  return view('edit',['ex'=>$identificador]);
+})->name('editar');
+// Route::post('/editarProducto','ProductoController@editar')->name('editar');
+// Route::get('/productos','ProductoController@TerminarEdicion')->name('GuardarEdicion');

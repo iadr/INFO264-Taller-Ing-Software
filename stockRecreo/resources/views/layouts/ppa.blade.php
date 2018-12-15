@@ -51,10 +51,9 @@
     </ul>
 
   </nav>
-  @guest
-  @else
+  @auth
   @include('layouts.sidebar')
-  @endguest
+  @endauth
 
 
     <!-- Scripts -->

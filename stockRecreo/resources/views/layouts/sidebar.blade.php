@@ -22,7 +22,7 @@
           <ul class="nav flex-column">
 
               <li><a href="/home" class="btn">Inicio</a></li>
-              <li><a href="{{ route('BDproductos') }}" class="btn">Administrar Productos</a></li>
+              <li><a href="{{ route('productos') }}" class="btn">Administrar Productos</a></li>
 
             <!-- <li class="nav-item">
               <a class="nav-link active" href="https://getbootstrap.com/docs/4.1/examples/dashboard/#">
