@@ -22,16 +22,39 @@
     </div>
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
 
-    <button class="btn btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Advanced Search
-    </button>
 
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-
-      </div>
-    </div>
 </form>
-<br>
+<button id="BusquedaAvanzada" class="btn btn-sm btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Búsqueda Avanzada
+</button>
+</div>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body" >
+      <form>
+        <div class="form-row">
+          <div class="input-group input-group-sm col-md-3 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="number" class="form-control" aria-label="precio maximo" placeholder="Precio Máximo">
+          </div>
+          <div class="input-group input-group-sm col-md-3 mb-2">
+            <label for="busqueda" class="sr-only">Edad Mínima</label>
+            <input type="number" class="form-control" id="busqueda" placeholder="Edad Mínima" name="busqueda">
+          </div>
+          <select class="custom-select custom-select-sm col-md-4 mb-2">
+            <option selected>Categoría</option>
+            <option value="Cartas">Cartas</option>
+            <option value="Circo">Circo</option>
+            <option value="Juegos de Mesa">Juegos de Mesa</option>
+            <option value="Magia">Magia</option>
+          </select>
+          <div class="col">
+            <button type="submit" class="btn btn-sm btn-block  btn-secondary mb-2" name="button">Buscar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
 
   <div class="container">
       <div class="table-responsive">
@@ -54,7 +77,12 @@
             <td>
               <form action="{{route('editar')}}" method="POST">
                 {{csrf_field()}}
-                 <input type="hidden" name='identificador' value="{{$producto->id}}">
+                <input type="hidden" name='identificador' value="{{$producto->id}}">
+                <input type="hidden" name='codigo' value="{{$producto->codigo}}">
+                <input type="hidden" name='nombre' value="{{$producto->nombre}}">
+                <input type="hidden" name='categoria' value="{{$producto->categoria}}">
+                <input type="hidden" name='precio' value="{{$producto->precio}}">
+                <input type="hidden" name='stock' value="{{$producto->stock}}">
                  <input type="submit" value="edit">
               </form>
             </td>

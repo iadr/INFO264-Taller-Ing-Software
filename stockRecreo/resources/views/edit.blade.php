@@ -2,6 +2,11 @@
 
 @section('content')
     <ul>
-      <li>hello, {{$ex}}</li>
+      <li>id, {{$id}}</li>
+      <li>codigo, {{$codigo}}</li>
+      <li>nombre, {{$nombre}}</li>
+      <li>categoria, {{$categoria}}</li>
+      <li>precio, {{$precio}}</li>
+      <li>stock, {{$stock}}</li>
     </ul>
 @endsection

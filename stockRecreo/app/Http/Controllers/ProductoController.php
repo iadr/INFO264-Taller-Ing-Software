@@ -22,9 +22,7 @@ class ProductoController extends Controller
     	return view('vistaBDproductos', compact('prod'));
   }
 
-  public function editar()
+  public function editar(Request $request)
   {
-    $termino = \Request::get('identificador');
-    return view('edit',['ex'=>$termino]);
   }
 }
