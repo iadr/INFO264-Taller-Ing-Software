@@ -19,5 +19,8 @@ class Producto extends Model
     	return DB::table('productos')->where('nombre','like','%'.$termino.'%')
         	->orderBy('nombre')->get();
     }
-
+    public function busquedaPorId($id)
+    {
+      return DB::table('productos')->where('id', '=',$id)->get();
+    }
 }

@@ -77,12 +77,7 @@
             <td>
               <form action="{{route('editar')}}" method="POST">
                 {{csrf_field()}}
-                <input type="hidden" name='identificador' value="{{$producto->id}}">
-                <input type="hidden" name='codigo' value="{{$producto->codigo}}">
-                <input type="hidden" name='nombre' value="{{$producto->nombre}}">
-                <input type="hidden" name='categoria' value="{{$producto->categoria}}">
-                <input type="hidden" name='precio' value="{{$producto->precio}}">
-                <input type="hidden" name='stock' value="{{$producto->stock}}">
+                <input type="hidden" name='idProducto' value="{{$producto->id}}">
                  <input type="submit" value="edit">
               </form>
             </td>

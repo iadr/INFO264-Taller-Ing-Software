@@ -24,13 +24,5 @@ Route::get('/productos', 'ProductoController@despliega')->name('productos');
 
 Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
 
-Route::post('/editarProducto',function(Request $request){
-  $id = $request->input('identificador');
-  $cod = $request->input('codigo');
-  $name = $request->input('nombre');
-  $cat = $request->input('categoria');
-  $stock = $request->input('stock');
-  $price = $request->input('precio');
-  return view('edit',['id' =>$id ,'codigo' =>$cod ,'nombre' =>$name ,'categoria' =>$cat ,'stock' =>$stock ,'precio' =>$price]);
-})->name('editar');
-// Route::get('/productos','ProductoController@TerminarEdicion')->name('GuardarEdicion');
+Route::post('/editarProducto','ProductoController@editar')->name('editar');
+Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
