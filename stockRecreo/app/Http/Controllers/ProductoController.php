@@ -40,9 +40,10 @@ class ProductoController extends Controller
 public function agregarCarrito(Request $request)
   {
   $id = $request->input('identificador');
-  $name = $request->input('nombre');
-  $price = $request->input('precio');
-  Cart::add( $id , $name , 1 ,$price );
+  $nombre = $request->input('nombre');
+  $precio = $request->input('precio');
+  $cantidad = $request->input('cantidad');
+  Cart::add( $id , $nombre , $cantidad ,$precio );
   return redirect('/productos');
 
   }

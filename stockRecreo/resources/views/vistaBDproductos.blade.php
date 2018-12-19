@@ -21,18 +21,14 @@
       <input type="search" class="form-control" id="busqueda" placeholder="Nombre" name="busqueda">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-
-
 </form>
+
 <button id="BusquedaAvanzada" class="btn btn-sm btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Búsqueda Avanzada
 </button>
 
-
 <form class="form-inline ml-auto" action="{{route('desplegarCarro')}}" method="GET">
 <button type="submit"  class="btn btn-primary mb-2 btn-success " >carro compras</button>
-
 </form>
-
 
 </div>
 <div class="collapse" id="collapseExample">
@@ -67,15 +63,17 @@
   <div class="container">
       <div class="table-responsive">
         <table class="table table-sm table-hover" >
-          <tr>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Edit</th>
-            <th>Buy</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Editar</th>
+              <th>Vender</th>
+            </tr>
+          </thead>
           @foreach($prod as $producto)
           <tr>
             <td>{{$producto->codigo}}</td>
@@ -87,17 +85,19 @@
               <form action="{{route('editar')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name='idProducto' value="{{$producto->id}}">
-                 <input type="submit" value="edit">
+                 <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
               </form>
             </td>
 
             <td>
-              <form action="{{route('agregarCarrito')}}" method="POST">
+              <form class="form-inline" action="{{route('agregarCarrito')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name='identificador' value="{{$producto->id}}">
                 <input type="hidden" name='nombre' value="{{$producto->nombre}}">
                 <input type="hidden" name='precio' value="{{$producto->precio}}">
-                 <input type="submit" value="Buy">
+                <input type="number" class="form-control-sm" style="width:60px;" name='cantidad' value="1">
+                 <!-- <input type="submit" value="Buy"> -->
+                 <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
               </form>
             </td>
 
@@ -109,6 +109,4 @@
   </div>
 </div>
 </div>
-
-
 @endsection
