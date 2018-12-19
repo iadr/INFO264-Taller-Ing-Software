@@ -13,55 +13,54 @@
     <div class="container">
       <div class="row justify-content-center">
 
-    <div class="card col-md-6 bg-light">
-      <div class="card-body">
-        <h5 class="card-title">Editar Producto</h5>
-        <h6 class="card-subtitle mb-2 text-muted"> Código {{$res->codigo}}</h6>
-        <form class="needs-validation" action="{{route('GuardarEdicion')}}" method="POST" novalidate>
-          {{csrf_field()}}
-          <input type="hidden" name="idProducto" value="{{$res->id}}">
-          <div class="form-group">
-            <div class="col mb-3">
-              <label for="validationCustom01">Nombre del Producto</label>
-              <input type="text" class="form-control" id="validationCustom01" name="nombre" value="{{$res->nombre}}" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col mb-3">
-              <label for="validationCustom02">Categoría</label>
-              <input type="text" class="form-control" id="validationCustom02" name="categoria" value="{{$res->categoria}}" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-            <div class="col mb-3">
-              <label for="validationCustomUsername">Precio</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">$</span>
+        <div class="card col-md-6 bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Editar Producto</h5>
+            <h6 class="card-subtitle mb-2 text-muted"> Código {{$res->codigo}}</h6>
+            <form class="needs-validation" action="{{route('GuardarEdicion')}}" method="POST" novalidate>
+              {{csrf_field()}}
+              <input type="hidden" name="idProducto" value="{{$res->id}}">
+              <div class="form-group">
+                <div class="col mb-3">
+                  <label for="validationCustom01">Nombre del Producto</label>
+                  <input type="text" class="form-control" id="validationCustom01" name="nombre" value="{{$res->nombre}}" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-                <input type="number" class="form-control" id="validationCustomUsername" name="precio" value="{{$res->precio}}" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Please choose a username.
+                <div class="col mb-3">
+                  <label for="validationCustom02">Categoría</label>
+                  <input type="text" class="form-control" id="validationCustom02" name="categoria" value="{{$res->categoria}}" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
+                <div class="col mb-3">
+                  <label for="validationCustomUsername">Precio</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend">$</span>
+                    </div>
+                    <input type="number" class="form-control" id="validationCustomUsername" name="precio" value="{{$res->precio}}" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-3">
+                  <label for="validationCustom03">Stock</label>
+                  <input type="number" class="form-control" id="validationCustom03" name="stock" value="{{$res->stock}}" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit form</button>
               </div>
-            </div>
-            <div class="col mb-3">
-              <label for="validationCustom03">Stock</label>
-              <input type="number" class="form-control" id="validationCustom03" name="stock" value="{{$res->stock}}" required>
-              <div class="invalid-feedback">
-                Please provide a valid city.
-              </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+
           </div>
-        </form>
-
-      </div>
-    </div>
-    <div class="col-md-1">
-
+        </div>
+      <div class="col-md-1">
     </div>
   </div>
 </div>

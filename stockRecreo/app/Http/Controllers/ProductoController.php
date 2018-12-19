@@ -32,8 +32,13 @@ class ProductoController extends Controller
     return view('edit',compact('resultado'));
   }
   public function TerminarEdicion(Request $request){
-
-
+    $id=$request->input('idProducto');
+    $nombre=$request->input('nombre');
+    $categoria=$request->input('categoria');
+    $precio=$request->input('precio');
+    $stock=$request->input('stock');
+    $prod=new Producto;
+    $prod->editarProducto($id,$nombre,$categoria,$precio,$stock);
     return $this->despliega();
   }
 

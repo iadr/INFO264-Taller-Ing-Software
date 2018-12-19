@@ -23,4 +23,9 @@ class Producto extends Model
     {
       return DB::table('productos')->where('id', '=',$id)->get();
     }
+    public function editarProducto($id,$nombre,$categoria,$precio,$stock){
+      DB::table('productos')
+                ->where('id', $id)
+                ->update(['nombre'=>$nombre,'categoria'=>$categoria,'precio'=>$precio,'stock'=>$stock]);
+    }
 }

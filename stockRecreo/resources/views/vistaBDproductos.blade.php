@@ -60,6 +60,7 @@
     </div>
 </div>
 
+<!-- <i class="fas fa-trash-alt"></i> ICONO BORRAR/Basurero-->
   <div class="container">
       <div class="table-responsive">
         <table class="table table-sm table-hover" >
@@ -88,7 +89,6 @@
                  <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
               </form>
             </td>
-
             <td>
               <form class="form-inline" action="{{route('agregarCarrito')}}" method="POST">
                 {{csrf_field()}}
@@ -100,8 +100,6 @@
                  <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
               </form>
             </td>
-
-
           </tr>
           @endforeach
         </table>
