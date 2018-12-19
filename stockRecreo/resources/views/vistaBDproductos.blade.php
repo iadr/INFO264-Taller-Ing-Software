@@ -26,6 +26,14 @@
 </form>
 <button id="BusquedaAvanzada" class="btn btn-sm btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Búsqueda Avanzada
 </button>
+
+
+<form class="form-inline ml-auto" action="{{route('desplegarCarro')}}" method="GET">
+<button type="submit"  class="btn btn-primary mb-2 btn-success " >carro compras</button>
+
+</form>
+
+
 </div>
 <div class="collapse" id="collapseExample">
     <div class="card card-body" >
@@ -66,6 +74,7 @@
             <th>Precio</th>
             <th>Stock</th>
             <th>Edit</th>
+            <th>Buy</th>
           </tr>
           @foreach($prod as $producto)
           <tr>
@@ -81,6 +90,18 @@
                  <input type="submit" value="edit">
               </form>
             </td>
+
+            <td>
+              <form action="{{route('agregarCarrito')}}" method="POST">
+                {{csrf_field()}}
+                <input type="hidden" name='identificador' value="{{$producto->id}}">
+                <input type="hidden" name='nombre' value="{{$producto->nombre}}">
+                <input type="hidden" name='precio' value="{{$producto->precio}}">
+                 <input type="submit" value="Buy">
+              </form>
+            </td>
+
+
           </tr>
           @endforeach
         </table>

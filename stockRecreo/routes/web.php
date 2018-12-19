@@ -26,3 +26,9 @@ Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
 
 Route::post('/editarProducto','ProductoController@editar')->name('editar');
 Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
+
+Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');
+
+Route::get('/CarroCompra',function(){
+	return view('CarroVenta');
+})->name('desplegarCarro');

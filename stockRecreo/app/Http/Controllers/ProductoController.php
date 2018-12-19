@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use Cart;
 
 class ProductoController extends Controller
 {
@@ -35,4 +36,15 @@ class ProductoController extends Controller
 
     return $this->despliega();
   }
+
+public function agregarCarrito(Request $request)
+  {
+  $id = $request->input('identificador');
+  $name = $request->input('nombre');
+  $price = $request->input('precio');
+  Cart::add( $id , $name , 1 ,$price );
+  return redirect('/productos');
+
+  }
+
 }
