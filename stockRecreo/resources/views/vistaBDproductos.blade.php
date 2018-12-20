@@ -18,7 +18,7 @@
           </button>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         <a class="btn btn-danger" href="{{route('crearProducto')}}">Crear Producto <i class="fas fa-plus-square"></i></a>
 
       </div>
