@@ -2,34 +2,31 @@
 @section('content')
 
 <div class="container">
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>producto</th>
             <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Precio Unitario</th>
             <th>Subtotal</th>
         </tr>
     </thead>
 
     <tbody>
 
-      <?php foreach(Cart::content() as $row) :?>
-
+@foreach(Cart::content() as $row)
           <tr>
               <td>
-                  <p><strong><?php echo $row->name; ?></strong></p>
-                  <p><?php echo ($row->options->has('size') ? $row->options->size : ''); ?></p>
+                <p>{{$row->name}}</p>
               </td>
-              <td><input type="text" value="<?php echo $row->qty; ?>"></td>
-              <td>   $<?php echo $row->price; ?></td>
-              <td>   $<?php echo $row->total; ?></td>
+              <td><input class="form-control form-control-sm" type="number" style="width:60px"  value="{{$row->qty}}"></td>
+              <td>   ${{$row->price}}</td>
+              <td>   ${{$row->subtotal}}</td>
           </tr>
-
-      <?php endforeach;?>
+@endforeach
 
     </tbody>
-    
+
     <tfoot>
       <tr>
         <td colspan="2">&nbsp;</td>
@@ -44,7 +41,9 @@
       <tr>
         <td colspan="2">&nbsp;</td>
         <td>Total   </td>
-        <td><?php echo Cart::total(); ?></td>
+        <td><?php
+        echo Cart::total();
+         ?></td>
       </tr>
     </tfoot>
 </table>
