@@ -18,10 +18,17 @@
           </button>
         </div>
       </div>
-      <div class="col-md-3 ml-auto">
+      <div class="col-md-1">
+        <a class="btn btn-danger" href="{{route('crearProducto')}}">Crear Producto <i class="fas fa-plus-square"></i></a>
+
+      </div>
+      <div class="col-md-3">
 
         <form class="form-inline" action="{{route('desplegarCarro')}}" method="GET">
-          <button type="submit"  class="btn btn-primary mb-2 btn-success ml-auto"><i class="fas fa-shopping-cart"></i> Carro de Compras</button>
+          <button type="submit"  class="btn btn-primary mb-2 btn-success ml-auto">
+            <i class="fas fa-shopping-cart"></i> Carro de Compras
+            <span class="badge badge-pill badge-light">{{Cart::count()}}</span>
+          </button>
         </form>
       </div>
   </div>
@@ -92,7 +99,7 @@
                 <input type="hidden" name='precio' value="{{$producto->precio}}">
                  <!-- <input type="submit" value="Buy"> -->
                  <div class="input-group">
-                   <input type="number" class="form-control form-control-sm" style="width:60px;" name='cantidad' value="1">
+                   <input type="number" class="form-control form-control-sm" min="1" max="1000" style="width:60px;" name='cantidad' value="1">
                    <div class="input-group-append">
                      <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
                    </div>

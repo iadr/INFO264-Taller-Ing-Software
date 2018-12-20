@@ -41,7 +41,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroupPrepend">$</span>
                     </div>
-                    <input type="number" class="form-control" id="validationCustomUsername" name="precio" value="{{$res->precio}}" aria-describedby="inputGroupPrepend" required>
+                    <input type="number" class="form-control" id="validationCustomUsername" min="100" max="999999" name="precio" value="{{$res->precio}}" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
                       Please choose a username.
                     </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col mb-3">
                   <label for="validationCustom03">Stock</label>
-                  <input type="number" class="form-control" id="validationCustom03" name="stock" value="{{$res->stock}}" required>
+                  <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="stock" value="{{$res->stock}}" required>
                   <div class="invalid-feedback">
                     Please provide a valid city.
                   </div>

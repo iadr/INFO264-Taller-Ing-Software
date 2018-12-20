@@ -29,7 +29,7 @@ class ProductoController extends Controller
     $prod=new Producto;
     $resultado=$prod->busquedaPorId($id);
     // return $resultado;
-    return view('edit',compact('resultado'));
+    return view('editarProducto',compact('resultado'));
   }
   public function TerminarEdicion(Request $request){
     $id=$request->input('idProducto');

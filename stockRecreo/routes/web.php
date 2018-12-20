@@ -32,3 +32,7 @@ Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCar
 Route::get('/CarroCompra',function(){
 	return view('CarroVenta');
 })->name('desplegarCarro');
+
+Route::get('/crearProducto',function(){
+  return view('crearProducto');
+})->name('crearProducto');
