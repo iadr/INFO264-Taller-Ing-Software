@@ -51,6 +51,9 @@ public function agregarCarrito(Request $request)
   Cart::add( $id , $nombre , $cantidad ,$precio );
   return redirect('/productos');
   }
-
+public function cancelarVenta(){
+  Cart::destroy();
+  return redirect('/productos');
+}
 
 }

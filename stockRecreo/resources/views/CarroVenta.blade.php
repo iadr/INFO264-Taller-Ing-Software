@@ -63,7 +63,7 @@
   <div class="container">
     <div class="row">
 
-      <form class="form-inline ml-auto"  action="{{route('productos')}}" >
+      <form class="form-inline ml-auto"  action="{{route('cancelarVenta')}}" >
         <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar Venta</button>
       </form>
   
