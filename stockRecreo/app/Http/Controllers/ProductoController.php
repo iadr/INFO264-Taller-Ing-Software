@@ -31,6 +31,7 @@ class ProductoController extends Controller
     // return $resultado;
     return view('editarProducto',compact('resultado'));
   }
+
   public function TerminarEdicion(Request $request){
     $id=$request->input('idProducto');
     $nombre=$request->input('nombre');
@@ -44,16 +45,30 @@ class ProductoController extends Controller
 
 public function agregarCarrito(Request $request)
   {
-  $id = $request->input('identificador');
-  $nombre = $request->input('nombre');
-  $precio = $request->input('precio');
-  $cantidad = $request->input('cantidad');
-  Cart::add( $id , $nombre , $cantidad ,$precio );
-  return redirect('/productos');
+  	$id = $request->input('identificador');
+  	$nombre = $request->input('nombre');
+  	$precio = $request->input('precio');
+  	$cantidad = $request->input('cantidad');
+  	Cart::add( $id , $nombre , $cantidad ,$precio );
+  	return redirect('/productos');
   }
-public function cancelarVenta(){
-  Cart::destroy();
-  return redirect('/productos');
-}
+
+	public function cancelarVenta()
+	{
+  		Cart::destroy();
+  		return redirect('/productos');
+	}
+
+	public function finalizarVenta()
+  	{
+  		$prod=new Producto;
+  		foreach (Cart::content() as $prodCarrito) {
+  			$nombre = $prodCarrito->name;
+  			$cantidad = $prodCarrito->qty;
+  			$prod->descontarStock($nombre,$cantidad);
+  		}
+  		Cart::destroy();
+    	return $this->despliega();
+  	}
 
 }

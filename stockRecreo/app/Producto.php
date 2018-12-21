@@ -25,7 +25,25 @@ class Producto extends Model
     }
     public function editarProducto($id,$nombre,$categoria,$precio,$stock){
       DB::table('productos')
-                ->where('id', $id)
+              	->where('id', $id)
                 ->update(['nombre'=>$nombre,'categoria'=>$categoria,'precio'=>$precio,'stock'=>$stock]);
+    }
+
+    public function descontarStock ($nombre, $cantidad)
+    {
+    	//$stock = DB::table('productos')
+    	//		->select('stock')
+    	//		->where('nombre', $nombre)->get();
+
+    	/*$stock = DB::table('productos')
+    			->where('nombre', $nombre)
+    			->pluck('stock');
+
+    	$nuevoStock = $stock - $cantidad;
+    	DB::table('productos')
+    			->where('nombre', $nombre)
+                ->update(['stock'=> $nuevoStock]);*/
+        DB::table('productos')
+        	->where('nombre', '=', $nombre)->decrement('stock', $cantidad);
     }
 }
