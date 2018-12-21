@@ -2,6 +2,11 @@
 @section('content')
 
 <div class="container">
+
+  <form class="form-inline ml-auto"  action="{{route('productos')}}" >
+  <button type="submit"  class="btn btn-primary mb-2 btn-success ml-auto" >Atras</button>
+  </form>
+
 <table class="table">
     <thead>
         <tr>
@@ -9,6 +14,7 @@
             <th>Cantidad</th>
             <th>Precio Unitario</th>
             <th>Subtotal</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
 
@@ -22,6 +28,12 @@
               <td><input class="form-control form-control-sm" type="number" style="width:60px"  value="{{$row->qty}}"></td>
               <td>   ${{$row->price}}</td>
               <td>   ${{$row->subtotal}}</td>
+              <td>
+                <form >
+                
+                 <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+              </form>
+              </td>
           </tr>
 @endforeach
 
@@ -46,10 +58,20 @@
          ?></td>
       </tr>
     </tfoot>
-</table>
-<form class="form-inline ml-auto" >
-<button type="submit"  class="btn btn-primary mb-2 btn-success " >Vender</button>
+  </table>
 
-</form>
+  <div class="container">
+    <div class="row">
+
+      <form class="form-inline ml-auto"  action="{{route('productos')}}" >
+        <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar Venta</button>
+      </form>
+  
+      <form class="form-inline ml-auto" >
+        <button type="submit"  class="btn btn-primary mb-2 btn-success " >Vender</button>
+      </form>
+
+    </div>
+  </div>
 </div>
 @endsection

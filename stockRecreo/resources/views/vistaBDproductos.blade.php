@@ -23,7 +23,6 @@
 
       </div>
       <div class="col-md-3">
-
         <form class="form-inline" action="{{route('desplegarCarro')}}" method="GET">
           <button type="submit"  class="btn btn-primary mb-2 btn-success ml-auto">
             <i class="fas fa-shopping-cart"></i> Carro de Compras
@@ -91,7 +90,8 @@
                  <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
               </form>
             </td>
-            <td>
+            <td> 
+
               <form class="form-inline" action="{{route('agregarCarrito')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name='identificador' value="{{$producto->id}}">
@@ -105,6 +105,7 @@
                    </div>
                  </div>
               </form>
+              
             </td>
             <td>
               <form action="#" method="POST">

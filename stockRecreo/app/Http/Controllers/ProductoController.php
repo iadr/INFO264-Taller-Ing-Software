@@ -50,7 +50,7 @@ public function agregarCarrito(Request $request)
   $cantidad = $request->input('cantidad');
   Cart::add( $id , $nombre , $cantidad ,$precio );
   return redirect('/productos');
-
   }
+
 
 }
