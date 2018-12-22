@@ -31,6 +31,7 @@ Route::get('/crearProducto',function(){
   return view('crearProducto');
 })->name('crearProducto');
 Route::post('/prods','ProductoController@GuardarProductoNuevo')->name('GuardarProductoNuevo');
+Route::post('eliminarProducto','ProductoController@borrarProducto')->name('borrarProducto');
 
 Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');
 Route::get('/CarroCompra',function(){

@@ -10,13 +10,14 @@ class Producto extends Model
     //
     public function mostrarTodo()
     {
-        return DB::table('productos')->get();
+        return DB::table('productos')->where('activo', True)->get();
 
     }
 
     public function busquedaProductos($termino)
     {
     	return DB::table('productos')->where('nombre','like','%'.$termino.'%')
+          ->where('activo', True)
         	->orderBy('nombre')->get();
     }
     public function busquedaPorId($id)
@@ -33,6 +34,12 @@ class Producto extends Model
       DB::table('productos')->insert(
         ['codigo'=>$codigo,'nombre'=>$nombre,'categoria'=>$categoria,'edadminima'=>$edad,'precio'=>$precio,'stock'=>$stock]
       );
+    }
+
+    public function borrarProducto($id){
+      DB::table('productos')
+                ->where('id',$id)
+                ->update(['activo'=>False]);
     }
 
     public function descontarStock ($nombre, $cantidad)

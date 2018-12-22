@@ -15,9 +15,9 @@ class ProductoController extends Controller
     	return view('vistaBDproductos', compact('prod'));
   }
 
-  public function buscar()
+  public function buscar(Request $request)
   {
-  		$termino = \Request::get('busqueda');
+  		$termino = $request->input('busqueda');
   		$producto = new Producto();
     	$prod=$producto->busquedaProductos($termino);
     	return view('vistaBDproductos', compact('prod'));
@@ -55,6 +55,13 @@ class ProductoController extends Controller
     $prod->crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock);
     return redirect()->route('productos');
 
+  }
+  public function borrarProducto(Request $request){
+    $id=$request->input('idProducto');
+    $prod=new Producto;
+    $prod->borrarProducto($id);
+    return redirect()->route('productos');
+    
   }
 
 public function agregarCarrito(Request $request)
