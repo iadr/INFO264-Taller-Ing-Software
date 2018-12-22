@@ -29,8 +29,9 @@
               <td>   ${{$row->price}}</td>
               <td>   ${{$row->subtotal}}</td>
               <td>
-                <form >
-                
+                 <form action="{{route('eliminarProductoCarro')}}" method="POST">
+                   {{csrf_field()}}
+                  <input type="hidden" name='identificador' value="{{$row->rowId}}">
                  <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
               </form>
               </td>

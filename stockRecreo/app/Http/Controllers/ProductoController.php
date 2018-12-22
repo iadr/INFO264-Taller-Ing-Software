@@ -70,5 +70,10 @@ public function agregarCarrito(Request $request)
   		Cart::destroy();
     	return $this->despliega();
   	}
+    public function eliminarProductoCarro(request $request){
+    $rowId =$request->input('identificador');
+    Cart::remove($rowId);
+    return redirect('/CarroCompra');
+    }
 
 }

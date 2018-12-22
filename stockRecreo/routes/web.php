@@ -36,6 +36,9 @@ Route::get('/CarroCompra',function(){
 Route::get('/crearProducto',function(){
   return view('crearProducto');
 })->name('crearProducto');
+
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
+
+Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
 
 Route::get('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');
