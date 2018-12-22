@@ -29,21 +29,15 @@ class Producto extends Model
                 ->update(['nombre'=>$nombre,'categoria'=>$categoria,'precio'=>$precio,'stock'=>$stock]);
     }
 
+    public function crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock){
+      DB::table('productos')->insert(
+        ['codigo'=>$codigo,'nombre'=>$nombre,'categoria'=>$categoria,'edadminima'=>$edad,'precio'=>$precio,'stock'=>$stock]
+      );
+    }
+
     public function descontarStock ($nombre, $cantidad)
     {
-    	//$stock = DB::table('productos')
-    	//		->select('stock')
-    	//		->where('nombre', $nombre)->get();
-
-    	/*$stock = DB::table('productos')
-    			->where('nombre', $nombre)
-    			->pluck('stock');
-
-    	$nuevoStock = $stock - $cantidad;
-    	DB::table('productos')
-    			->where('nombre', $nombre)
-                ->update(['stock'=> $nuevoStock]);*/
-        DB::table('productos')
-        	->where('nombre', '=', $nombre)->decrement('stock', $cantidad);
+      DB::table('productos')
+      	->where('nombre', '=', $nombre)->decrement('stock', $cantidad);
     }
 }

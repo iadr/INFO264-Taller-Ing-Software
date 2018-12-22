@@ -27,18 +27,15 @@ Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
 Route::post('/editarProducto','ProductoController@editar')->name('editar');
 Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
 
-Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');
-
-Route::get('/CarroCompra',function(){
-	return view('CarroVenta');
-})->name('desplegarCarro');
-
 Route::get('/crearProducto',function(){
   return view('crearProducto');
 })->name('crearProducto');
+Route::post('/prods','ProductoController@GuardarProductoNuevo')->name('GuardarProductoNuevo');
 
+Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');
+Route::get('/CarroCompra',function(){
+	return view('CarroVenta');
+})->name('desplegarCarro');
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
-
 Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
-
 Route::get('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');

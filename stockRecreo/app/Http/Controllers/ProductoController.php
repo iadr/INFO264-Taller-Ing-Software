@@ -43,6 +43,20 @@ class ProductoController extends Controller
     return $this->despliega();
   }
 
+  public function GuardarProductoNuevo(Request $request)
+  {
+    $codigo=$request->input('codigo');
+    $nombre=$request->input('nombre');
+    $categoria=$request->input('categoria');
+    $edad=$request->input('edadminima');
+    $precio=$request->input('precio');
+    $stock=$request->input('stock');
+    $prod=new Producto;
+    $prod->crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock);
+    return redirect()->route('productos');
+
+  }
+
 public function agregarCarrito(Request $request)
   {
   	$id = $request->input('identificador');
