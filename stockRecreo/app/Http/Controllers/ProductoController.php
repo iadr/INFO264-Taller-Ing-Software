@@ -23,6 +23,28 @@ class ProductoController extends Controller
     	return view('vistaBDproductos', compact('prod'));
   }
 
+  public function bAvanzada(Request $req){
+    $producto=new Producto;
+    $array = array('precio' => 999999,'categoria' => '','edad' => 1);
+    if ($req->filled('codigo')) {
+      $cod=$req->input('codigo');
+      $prod=$producto->busquedaPorCodigo($cod);
+      return view('vistaBDproductos', compact('prod'));
+
+    }
+    if ($req->filled('precio')) {
+      $array['precio']=$req->input('precio') ;
+    }
+    if ($req->filled('edad')) {
+      $array['edad']=$req->input('edad');
+    }
+    if ($req->filled('categoria')) {
+      $array['categoria']=$req->input('categoria');
+    }
+    $prod=$producto->busquedaPorCampos($array);
+    return view('vistaBDproductos', compact('prod'));
+  }
+
   public function editar(Request $request)
   {
     $id = $request->input('idProducto');
@@ -40,7 +62,7 @@ class ProductoController extends Controller
     $stock=$request->input('stock');
     $prod=new Producto;
     $prod->editarProducto($id,$nombre,$categoria,$precio,$stock);
-    return $this->despliega();
+    return redirect()->route('productos') ;
   }
 
   public function GuardarProductoNuevo(Request $request)
@@ -61,7 +83,7 @@ class ProductoController extends Controller
     $prod=new Producto;
     $prod->borrarProducto($id);
     return redirect()->route('productos');
-    
+
   }
 
 public function agregarCarrito(Request $request)
@@ -91,6 +113,7 @@ public function agregarCarrito(Request $request)
   		Cart::destroy();
     	return $this->despliega();
   	}
+
     public function eliminarProductoCarro(request $request){
     $rowId =$request->input('identificador');
     Cart::remove($rowId);

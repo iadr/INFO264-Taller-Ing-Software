@@ -14,40 +14,42 @@
             </div>
             <button type="submit" class="btn btn-primary mb-2">Buscar</button>
           </form>
-          <button id="BusquedaAvanzada" class="btn btn-sm btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Búsqueda Avanzada
+          <button id="BusquedaAvanzada" class="btn btn-sm btn-link mb-2" type="button" data-toggle="collapse" data-target="#collapseBusquedaAvanzada" aria-expanded="false" aria-controls="collapseBusquedaAvanzada">Búsqueda Avanzada
           </button>
         </div>
       </div>
       <div class="col-md-2">
         <a class="btn btn-danger" href="{{route('crearProducto')}}">Crear Producto <i class="fas fa-plus-square"></i></a>
-
       </div>
       <div class="col-md-3">
-        <form class="form-inline" action="{{route('desplegarCarro')}}" method="GET">
-          <button type="submit"  class="btn btn-primary mb-2 btn-success ml-auto">
+          <a href="{{route('desplegarCarro')}}" class="btn btn-primary btn-success ml-auto">
             <i class="fas fa-shopping-cart"></i> Carro de Compras
             <span class="badge badge-pill badge-light">{{Cart::count()}}</span>
-          </button>
-        </form>
+          </a>
       </div>
   </div>
 
-  <div class="collapse" id="collapseExample">
+  <div class="collapse" id="collapseBusquedaAvanzada">
       <div class="card card-body" >
-        <form>
+        <form action="{{route('BusquedaAvanzada')}}" method="POST">
+          {{csrf_field()}}
           <div class="form-row">
-            <div class="input-group input-group-sm col-md-3 mb-2">
+            <div class="input-group input-group-sm col-md-2 mb-2">
+              <label for="codigo" class="sr-only">Codigo</label>
+              <input type="text" class="form-control" placeholder="Código" name="codigo">
+            </div>
+            <div class="input-group input-group-sm col-md-2 mb-2">
               <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
               </div>
-              <input type="number" class="form-control" aria-label="precio maximo" placeholder="Precio Máximo">
+              <input type="number" class="form-control" min="100" max="1000000" aria-label="precio maximo" placeholder="Precio Máximo" name="precio">
             </div>
-            <div class="input-group input-group-sm col-md-3 mb-2">
+            <div class="input-group input-group-sm col-md-2 mb-2">
               <label for="busqueda" class="sr-only">Edad Mínima</label>
-              <input type="number" class="form-control" id="busqueda" placeholder="Edad Mínima" name="busqueda">
+              <input type="number" class="form-control" min="1" max="21" placeholder="Edad Mínima" name="edad">
             </div>
-            <select class="custom-select custom-select-sm col-md-4 mb-2">
-              <option selected>Categoría</option>
+            <select class="custom-select custom-select-sm col-md-4 mb-2" name="categoria">
+              <option value="" disable selected>Categoría</option>
               <option value="Cartas">Cartas</option>
               <option value="Circo">Circo</option>
               <option value="Juegos de Mesa">Juegos de Mesa</option>
@@ -78,7 +80,7 @@
           </thead>
           @foreach($prod as $producto)
           <tr>
-            <td>{{$producto->codigo}}</td>
+            <td>{{ $producto->codigo}}</td>
             <td>{{ $producto->nombre }}</td>
             <td>{{ $producto->categoria}}</td>
             <td>{{ $producto->precio }}</td>

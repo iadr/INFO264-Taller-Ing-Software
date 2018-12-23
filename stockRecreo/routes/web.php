@@ -21,8 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/productos', 'ProductoController@despliega')->name('productos');
-
 Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
+Route::post('/BusquedaAvanzada','ProductoController@bAvanzada')->name('BusquedaAvanzada');
 
 Route::post('/editarProducto','ProductoController@editar')->name('editar');
 Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');

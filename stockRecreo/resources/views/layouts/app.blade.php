@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-      
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -46,9 +46,9 @@
                         <!-- Authentication Links -->
                         @guest
 
-                            <li><a href="{{ url('/') }}">Vuelta a Inicio</a></li>
+                            <li><a href="{{ url('/') }}">Volver a Inicio</a></li>
                             <!-- <li><a href="{{ route('login') }}">Ingresar</a></li> -->
-                            <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
+                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
                             <li class="dropdown">

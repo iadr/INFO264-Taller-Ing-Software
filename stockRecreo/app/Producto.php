@@ -24,6 +24,19 @@ class Producto extends Model
     {
       return DB::table('productos')->where('id', '=',$id)->get();
     }
+    public function busquedaPorCodigo($codigo)
+    {
+      return DB::table('productos')->where('codigo', '=',$codigo)->get();
+    }
+    public function busquedaPorCampos($array)
+    {
+      return DB::table('productos')
+              ->where('categoria', 'like','%'.$array['categoria'].'%')
+              ->where('precio', '<=',$array['precio'])
+              ->where('edadminima', '>=',$array['edad'])
+              ->get();
+    }
+
     public function editarProducto($id,$nombre,$categoria,$precio,$stock){
       DB::table('productos')
               	->where('id', $id)
