@@ -14,10 +14,7 @@ class Productos extends Migration
     public function up()
     {
       Schema::enableForeignKeyConstraints();
-
-      if (Schema::hasTable('productos')){
-        Schema::drop('productos');
-      }
+      Schema::dropIfExists('productos');
       Schema::create('productos', function ($table){
         $table->engine='InnoDB';
         $table->charset='utf8';
@@ -31,6 +28,8 @@ class Productos extends Migration
         $table->integer('precio');
         $table->integer('stock');
         $table->boolean('activo');
+        $table->dateTime('created_at')->useCurrent();
+        $table->dateTime('updated_at')->useCurrent();
       });
     }
 

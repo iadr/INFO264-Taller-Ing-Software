@@ -16,8 +16,8 @@ class Proveedores extends Migration
       Schema::enableForeignKeyConstraints();
 
       if (Schema::hasTable('proveedores')){
-        Schema::drop('proveedores');
         Schema::dropIfExists('proveedor_producto');
+        Schema::drop('proveedores');
 
       }
       Schema::create('proveedores', function($table){
@@ -31,8 +31,8 @@ class Proveedores extends Migration
         $table->string('representante');
         $table->string('telefono');
         $table->string('email');
-        $table->dateTime('created_at');
-        $table->dateTime('updated_at');
+        $table->dateTime('created_at')->useCurrent();
+        $table->dateTime('updated_at')->useCurrent();
       });
     }
 
