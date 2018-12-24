@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
@@ -20,21 +21,25 @@ class ProductoSeeder extends Seeder
         "edadminima"=>12,
         "precio"=>27990,
         "stock"=>15,
-        "activo"=>True
+        "activo"=>True,
+        "created_at"=>now(),
+        "updated_at"=>now()
       ]);
-      $array=array('juegos de mesa','cartas','magia','circo');
-      $faker=Faker::create();
-      // $productos=factory(App\Productos::class,100)->create();
-      for($i=0;$i<100;$i++){
-        DB::table('productos')->insert([
-          "codigo"=>$faker->ean13,
-          "nombre"=>$faker->word,
-          "categoria"=>$faker->randomElement($array),
-          "edadminima"=>$faker->numberBetween(2,16),
-          "precio"=>$faker->randomNumber(5),
-          "stock"=>$faker->randomNumber(3),
-          "activo"=>True
-        ]);
-      }
+      // $array=array('juegos de mesa','cartas','magia','circo');
+      // $faker=Faker::create();
+      // // $productos=factory(App\Productos::class,100)->create();
+      // for($i=0;$i<100;$i++){
+      //   DB::table('productos')->insert([
+      //     "codigo"=>$faker->ean13,
+      //     "nombre"=>$faker->word,
+      //     "categoria"=>$faker->randomElement($array),
+      //     "edadminima"=>$faker->numberBetween(2,16),
+      //     "precio"=>$faker->randomNumber(5),
+      //     "stock"=>$faker->randomNumber(3),
+      //     "activo"=>True
+      //   ]);
+      // }
+      $producto=factory(App\Producto::class,100)->create();
+
     }
 }
