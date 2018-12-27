@@ -39,7 +39,7 @@ Route::get('/CarroCompra',function(){
 })->name('desplegarCarro');
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
 Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
-Route::get('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');
+Route::post('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');
 
 
 //proveedor//////////

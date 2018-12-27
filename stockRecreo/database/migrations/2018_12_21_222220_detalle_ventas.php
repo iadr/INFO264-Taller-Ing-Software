@@ -25,7 +25,7 @@ class DetalleVentas extends Migration
         $table->primary(['id_venta','id_producto']);
       });
       Schema::table('detalle_ventas', function($table){
-        $table->foreign('id_venta')->references('id_venta')->on('ventas');
+        $table->foreign('id_venta')->references('id')->on('ventas');
         $table->foreign('id_producto')->references('id')->on('productos');
       });
     }

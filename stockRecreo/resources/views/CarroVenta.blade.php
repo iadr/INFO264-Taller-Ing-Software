@@ -68,7 +68,9 @@
         <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar Venta</button>
       </form>
   
-      <form class="form-inline ml-auto" action="{{ route('finalizarVenta') }}">
+      <form class="form-inline ml-auto" action="{{ route('finalizarVenta') }}" method="POST">
+        {{csrf_field()}}
+        <input type="hidden" name='vendedor' value="{{Auth::user()->name}}">
         <button type="submit"  class="btn btn-primary mb-2 btn-success " >Finalizar venta</button>
       </form>
 

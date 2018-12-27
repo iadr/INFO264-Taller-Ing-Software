@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Venta;
 use Cart;
 
 class ProductoController extends Controller
@@ -102,13 +103,29 @@ public function agregarCarrito(Request $request)
   		return redirect('/productos');
 	}
 
-	public function finalizarVenta()
+	//public function finalizarVenta()
+	public function finalizarVenta(request $request)
   	{
-  		$prod=new Producto;
+  		$prod = new Producto;
+  		$venta = new Venta;
+  		$cantidadProductos = Cart::count();
+  		$totalRaw = Cart::total();
+  		$total = str_replace('.','', $totalRaw); //para quitar los puntos
+  		$nombreVendedor = $request->input('vendedor');
+
+  		//$venta->crearVenta($total,$cantidadProductos);
+  		//$idVenta = $venta->crearVenta($total,$cantidadProductos);
+  		$idVenta = $venta->crearVenta($total,$cantidadProductos,$nombreVendedor);
+  		//$venta->creaVenta($total,$cantidadProductos,$nombreVendedor);
+
+
   		foreach (Cart::content() as $prodCarrito) {
-  			$nombre = $prodCarrito->name;
+  			//$nombre = $prodCarrito->name;
+  			$idProducto = $prodCarrito->id;
   			$cantidad = $prodCarrito->qty;
-  			$prod->descontarStock($nombre,$cantidad);
+  			$precio = $prodCarrito->price;
+  			$venta->asociarVenta($idVenta,$idProducto,$precio,$cantidad);
+  			$prod->descontarStock($idProducto,$cantidad);
   		}
   		Cart::destroy();
     	return $this->despliega();

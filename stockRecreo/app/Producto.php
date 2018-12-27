@@ -57,9 +57,9 @@ class Producto extends Model
                 ->update(['activo'=>False]);
     }
 
-    public function descontarStock ($nombre, $cantidad)
+    public function descontarStock ($idProducto, $cantidad)
     {
       DB::table('productos')
-      	->where('nombre', '=', $nombre)->decrement('stock', $cantidad);
+      	->where('id', '=', $idProducto)->decrement('stock', $cantidad);
     }
 }

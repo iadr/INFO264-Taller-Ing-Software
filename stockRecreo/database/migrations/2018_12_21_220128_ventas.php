@@ -18,7 +18,7 @@ class Ventas extends Migration
           $table->charset='utf8';
           $table->collation='utf8_spanish_ci';
 
-          $table->increments('id_venta')->unsigned();
+          $table->increments('id')->unsigned();
           $table->integer('monto')->unsigned();
           $table->integer('cantidadProductos')->unsigned();
           $table->string('nombreVendedor');
