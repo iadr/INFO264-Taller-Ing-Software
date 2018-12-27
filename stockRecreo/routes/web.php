@@ -28,14 +28,14 @@ Route::post('/editarProducto','ProductoController@editar')->name('editar');
 Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
 
 Route::get('/crearProducto',function(){
-  return view('crearProducto');
+  return view('Producto.crearProducto');
 })->name('crearProducto');
 Route::post('/prods','ProductoController@GuardarProductoNuevo')->name('GuardarProductoNuevo');
 Route::post('eliminarProducto','ProductoController@borrarProducto')->name('borrarProducto');
 
 Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');
 Route::get('/CarroCompra',function(){
-	return view('CarroVenta');
+	return view('Producto.CarroVenta');
 })->name('desplegarCarro');
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
 Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
@@ -51,10 +51,10 @@ Route::post('/editarProveedores', 'ProveedorController@editarProveedor')->name('
 
 
 Route::get('/crearProveedor',function(){
-  return view('crearProveedor');
+  return view('Proveedor.crearProveedor');
 })->name('crearProveedor');
 
 Route::post('/provs','ProveedorController@GuardarNuevoProveedor')->name('GuardarNuevoProveedor');
 
-Route::post('/proveedorEditado','ProveedorController@TerminarEdicionprov')->name('GuardarEdicionProv');
+Route::post('/proveedorEditado','ProveedorController@TerminarEdicionProv')->name('GuardarEdicionProv');
 Route::post('eliminarProveedor','ProveedorController@borrarProveedor')->name('borrarProveedor');

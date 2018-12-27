@@ -13,7 +13,7 @@ class ProductoController extends Controller
   {
    		$producto = new Producto();
     	$prod=$producto->mostrarTodo();
-    	return view('vistaBDproductos', compact('prod'));
+    	return view('Producto.vistaBDproductos', compact('prod'));
   }
 
   public function buscar(Request $request)
@@ -21,7 +21,7 @@ class ProductoController extends Controller
   		$termino = $request->input('busqueda');
   		$producto = new Producto();
     	$prod=$producto->busquedaProductos($termino);
-    	return view('vistaBDproductos', compact('prod'));
+    	return view('Producto.vistaBDproductos', compact('prod'));
   }
 
   public function bAvanzada(Request $req){
@@ -30,8 +30,7 @@ class ProductoController extends Controller
     if ($req->filled('codigo')) {
       $cod=$req->input('codigo');
       $prod=$producto->busquedaPorCodigo($cod);
-      return view('vistaBDproductos', compact('prod'));
-
+      return view('Producto.vistaBDproductos', compact('prod'));
     }
     if ($req->filled('precio')) {
       $array['precio']=$req->input('precio') ;
@@ -43,7 +42,7 @@ class ProductoController extends Controller
       $array['categoria']=$req->input('categoria');
     }
     $prod=$producto->busquedaPorCampos($array);
-    return view('vistaBDproductos', compact('prod'));
+    return view('Producto.vistaBDproductos', compact('prod'));
   }
 
   public function editar(Request $request)
@@ -52,7 +51,7 @@ class ProductoController extends Controller
     $prod=new Producto;
     $resultado=$prod->busquedaPorId($id);
     // return $resultado;
-    return view('editarProducto',compact('resultado'));
+    return view('Producto.editarProducto',compact('resultado'));
   }
 
   public function TerminarEdicion(Request $request){

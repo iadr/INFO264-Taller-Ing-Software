@@ -11,7 +11,7 @@ class ProveedorController extends Controller
   {
       $proveedor = new Proveedor();
       $prov=$proveedor->mostrarTodo();
-      return view('vistaBDproveedores', compact('prov'));
+      return view('Proveedor.vistaBDproveedores', compact('prov'));
   } //
 
   public function buscar()
@@ -19,7 +19,7 @@ class ProveedorController extends Controller
   		$termino = \Request::get('busqueda');
   		$proveedor = new Proveedor();
     	$prov=$proveedor->busquedaProveedores($termino);
-    	return view('vistaBDproveedores', compact('prov'));
+    	return view('Proveedor.vistaBDproveedores', compact('prov'));
   }
 
   public function editarProveedor(Request $request)
@@ -28,11 +28,11 @@ class ProveedorController extends Controller
     $prov=new Proveedor;
     $resultado=$prov->busquedaPorId($id);
     // return $resultado;
-    return view('editarProveedor',compact('resultado'));
+    return view('Proveedor.editarProveedor',compact('resultado'));
 
   }
 
-  public function TerminarEdicionprov(Request $request){
+  public function TerminarEdicionProv(Request $request){
     $id=$request->input('idProveedor');
     $nombre=$request->input('nombre');
     $direccion=$request->input('direccion');
@@ -41,7 +41,7 @@ class ProveedorController extends Controller
     $email=$request->input('email');
     $prov=new Proveedor;
     $prov->editarProveedores($id,$nombre,$direccion,$representante,$telefono,$email);
-    return $this->desplegarProveedores();
+    return redirect()->route('proveedores');
   }
 
 public function GuardarNuevoProveedor(Request $request)
@@ -66,6 +66,6 @@ public function GuardarNuevoProveedor(Request $request)
 
   }
 
-	
+
 
 }
