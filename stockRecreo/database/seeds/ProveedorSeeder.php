@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class ProveedorSeeder extends Seeder
 {
@@ -11,6 +14,6 @@ class ProveedorSeeder extends Seeder
      */
     public function run()
     {
-      $proveedor=factory(App\Proveedor::class,25)->create();
+    	$proveedor=factory(App\Proveedor::class,25)->create();
     }
 }

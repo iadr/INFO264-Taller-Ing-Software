@@ -2,13 +2,13 @@
 
 namespace App;
 
-
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class Proveedor extends Model
 {
+protected $table= 'proveedores';
 
  public function mostrarTodo()
     {

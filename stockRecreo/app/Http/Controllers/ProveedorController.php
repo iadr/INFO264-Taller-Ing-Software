@@ -39,7 +39,6 @@ class ProveedorController extends Controller
     $representante=$request->input('representante');
     $telefono=$request->input('telefono');
     $email=$request->input('email');
-    
     $prov=new Proveedor;
     $prov->editarProveedores($id,$nombre,$direccion,$representante,$telefono,$email);
     return $this->desplegarProveedores();
