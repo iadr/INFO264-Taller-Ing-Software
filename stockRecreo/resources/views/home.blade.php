@@ -21,8 +21,11 @@
         </div>
     </div> -->
     <div class="row justify-content-center align-items-center">
-      <script src="https://cdn.htmlgames.com/embed.js?game=YukonSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
+      <!-- <script src="https://cdn.htmlgames.com/embed.js?game=YukonSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
     </div>
+    <div> -->
+<script src="https://cdn.htmlgames.com/embed.js?game=ClassicSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
+</div>
 
 </div>
 @endsection
