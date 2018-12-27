@@ -8,6 +8,7 @@ $factory->define(App\Proveedor::class, function (Faker $faker) {
       "direccion"=>$faker->address,
       "representante"=>$faker->name,
       "telefono"=>$faker->e164PhoneNumber,
-      "email"=>$faker->email
+      "email"=>$faker->email,
+      "activo"=>True
     ];
 });

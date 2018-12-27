@@ -9,7 +9,7 @@
           <div class="card-body">
             <h5 class="card-title">Producto Nuevo</h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
-            <form class="needs-validation" action="{{route('GuardarEdicion')}}" method="POST" novalidate>
+            <form class="needs-validation" action="{{route('GuardarProductoNuevo')}}" method="POST" novalidate>
               {{csrf_field()}}
 
               <div class="form-group">
@@ -34,6 +34,14 @@
                     Looks good!
                   </div>
                 </div>
+                   <div class="col mb-3">
+                  <label for="validationCustom03">Edad Minima</label>
+                  <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="edadminima" value="" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+
                 <div class="col mb-3">
                   <label for="validationCustomUsername">Precio</label>
                   <div class="input-group">

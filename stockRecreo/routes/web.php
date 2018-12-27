@@ -40,3 +40,21 @@ Route::get('/CarroCompra',function(){
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
 Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
 Route::get('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');
+
+
+//proveedor//////////
+Route::get('/proveedores', 'ProveedorController@desplegarProveedores')->name('proveedores');
+Route::post('/proveedores', 'ProveedorController@buscar')->name('BusquedaProveedor');
+
+Route::post('/editarProveedores', 'ProveedorController@editarProveedor')->name('editarProveedor');
+
+
+
+Route::get('/crearProveedor',function(){
+  return view('crearProveedor');
+})->name('crearProveedor');
+
+Route::post('/provs','ProveedorController@GuardarNuevoProveedor')->name('GuardarNuevoProveedor');
+
+Route::post('/proveedorEditado','ProveedorController@TerminarEdicionprov')->name('GuardarEdicionProv');
+Route::post('eliminarProveedor','ProveedorController@borrarProveedor')->name('borrarProveedor');

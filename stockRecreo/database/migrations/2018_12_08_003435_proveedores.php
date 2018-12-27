@@ -31,6 +31,7 @@ class Proveedores extends Migration
         $table->string('representante');
         $table->string('telefono');
         $table->string('email');
+        $table->boolean('activo');
         $table->dateTime('created_at')->useCurrent();
         $table->dateTime('updated_at')->useCurrent();
       });

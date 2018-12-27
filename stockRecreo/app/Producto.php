@@ -6,6 +6,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+
 class Producto extends Model
 {
     //
@@ -46,7 +47,7 @@ class Producto extends Model
 
     public function crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock){
       DB::table('productos')->insert(
-        ['codigo'=>$codigo,'nombre'=>$nombre,'categoria'=>$categoria,'edadminima'=>$edad,'precio'=>$precio,'stock'=>$stock]
+        ['codigo'=>$codigo,'nombre'=>$nombre,'categoria'=>$categoria,'edadminima'=>$edad,'precio'=>$precio,'stock'=>$stock,'activo'=>True,'created_at'=>now(),'updated_at'=>now()]
       );
     }
 
