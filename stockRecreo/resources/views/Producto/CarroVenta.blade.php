@@ -17,46 +17,45 @@
             <th>Eliminar</th>
         </tr>
     </thead>
-
     <tbody>
-
-@foreach(Cart::content() as $row)
-          <tr>
-              <td>
-                <p>{{$row->name}}</p>
-              </td>
-              <td><input class="form-control form-control-sm" type="number" style="width:60px"  value="{{$row->qty}}"></td>
-              <td>   ${{$row->price}}</td>
-              <td>   ${{$row->subtotal}}</td>
-              <td>
-                 <form action="{{route('eliminarProductoCarro')}}" method="POST">
-                   {{csrf_field()}}
-                  <input type="hidden" name='identificador' value="{{$row->rowId}}">
-                 <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-              </form>
-              </td>
-          </tr>
-@endforeach
-
+      @foreach(Cart::content() as $row)
+        <tr>
+          <td>
+            <p>{{$row->name}}</p>
+          </td>
+          <td>
+            <form class="" action="#" method="post">
+              <input class="form-control form-control-sm" type="number" name="cantidad" min="1" max="999" style="width:60px"  value="{{$row->qty}}">
+              <input class="form-control form-control-sm" type="hidden" name="rowId" style="width:60px"  value="{{$row->rowId}}">
+            </form>
+          </td>
+          <td>   ${{$row->price}}</td>
+          <td>   ${{$row->subtotal}}</td>
+          <td>
+             <form action="{{route('eliminarProductoCarro')}}" method="POST">
+               {{csrf_field()}}
+              <input type="hidden" name='identificador' value="{{$row->rowId}}">
+              <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+      @endforeach
     </tbody>
-
     <tfoot>
       <tr>
         <td colspan="2">&nbsp;</td>
         <td>Subtotal   </td>
-        <td><?php echo Cart::subtotal(); ?></td>
+        <td>{{Cart::subtotal()}}</td>
       </tr>
       <tr>
         <td colspan="2">&nbsp;</td>
         <td>Iva   </td>
-        <td><?php echo Cart::tax(); ?></td>
+        <td>{{Cart::tax()}}</td>
       </tr>
       <tr>
         <td colspan="2">&nbsp;</td>
         <td>Total   </td>
-        <td><?php
-        echo Cart::total();
-         ?></td>
+        <td>{{Cart::total()}}</td>
       </tr>
     </tfoot>
   </table>
@@ -67,13 +66,12 @@
       <form class="form-inline ml-auto"  action="{{route('cancelarVenta')}}" >
         <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar Venta</button>
       </form>
-  
+
       <form class="form-inline ml-auto" action="{{ route('finalizarVenta') }}" method="POST">
         {{csrf_field()}}
         <input type="hidden" name='vendedor' value="{{Auth::user()->name}}">
         <button type="submit"  class="btn btn-primary mb-2 btn-success " >Finalizar venta</button>
       </form>
-
     </div>
   </div>
 </div>
