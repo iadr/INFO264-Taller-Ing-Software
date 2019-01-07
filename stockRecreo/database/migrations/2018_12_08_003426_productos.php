@@ -14,7 +14,7 @@ class Productos extends Migration
     public function up()
     {
       Schema::enableForeignKeyConstraints();
-      Schema::dropIfExists('productos');
+
       Schema::create('productos', function ($table){
         $table->engine='InnoDB';
         $table->charset='utf8';
@@ -31,6 +31,24 @@ class Productos extends Migration
         $table->dateTime('created_at')->useCurrent();
         $table->dateTime('updated_at')->useCurrent();
       });
+      // Schema::create('categorias',function($table){
+      //   $table->engine='InnoDB';
+      //   $table->charset='utf8';
+      //   $table->collation='utf8_spanish_ci';
+      //
+      //   $table->increments('id')->unsigned();
+      //   $table->string('categoria');
+      //   $table->string('descripcion')->nullable();
+      // });
+      // Schema::create('categoria_producto',function($table){
+      //   $table->engine='InnoDB';
+      //   $table->charset='utf8';
+      //   $table->collation='utf8_spanish_ci';
+      //
+      //   $table->integer('id_producto')->unsigned();
+      //   $table->integer('id_categoria')->unsigned();
+      //   $table->primary(['id_categoria','id_producto']);
+      // });
     }
 
     /**
@@ -40,6 +58,8 @@ class Productos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productos');
+      Schema::dropIfExists('categoria_producto');
+      Schema::dropIfExists('categorias');
+      Schema::dropIfExists('productos');
     }
 }

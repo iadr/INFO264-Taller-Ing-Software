@@ -31,6 +31,7 @@
                 <div class="col mb-3">
                   <label for="validationCustom02">Categoría</label>
                   <input type="text" class="form-control" id="validationCustom02" name="categoria" value="{{$res->categoria}}" required>
+                  
                   <div class="valid-feedback">
                     Looks good!
                   </div>

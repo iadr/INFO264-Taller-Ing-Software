@@ -29,7 +29,16 @@
                 </div>
                 <div class="col mb-3">
                   <label for="validationCustom02">Categoría</label>
-                  <input type="text" class="form-control" id="validationCustom02" name="categoria" value="" required>
+                  <select class="custom-select " id="validationCustom02" name="categoria" required>
+                    <?php
+                    use Illuminate\Support\Facades\DB;
+                    $cat = DB::table('productos')->distinct()->pluck('categoria');
+                    foreach ($cat as $categoria) {
+                      echo '<option value="'.$categoria.'">'.$categoria.' </option>';
+                    }
+                    ?>
+                  </select>
+                  <!-- <input type="text" class="form-control" id="validationCustom02" name="categoria" value="" required> -->
                   <div class="valid-feedback">
                     Looks good!
                   </div>

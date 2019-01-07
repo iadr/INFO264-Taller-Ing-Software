@@ -50,10 +50,13 @@
             </div>
             <select class="custom-select custom-select-sm col-md-4 mb-2" name="categoria">
               <option value="" disable selected>Categoría</option>
-              <option value="Cartas">Cartas</option>
-              <option value="Circo">Circo</option>
-              <option value="Juegos de Mesa">Juegos de Mesa</option>
-              <option value="Magia">Magia</option>
+              <?php
+              use Illuminate\Support\Facades\DB;
+              $cat = DB::table('productos')->distinct()->pluck('categoria');
+              foreach ($cat as $categoria) {
+                echo '<option value="'.$categoria.'">'.$categoria.' </option>';
+              }
+               ?>
             </select>
             <div class="col">
               <button type="submit" class="btn btn-sm btn-block  btn-secondary mb-2" name="button">Buscar</button>
