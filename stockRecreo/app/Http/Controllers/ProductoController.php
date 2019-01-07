@@ -136,4 +136,11 @@ public function agregarCarrito(Request $request)
     return redirect('/CarroCompra');
     }
 
+    public function editarProductoCarro(request $request){
+    $rowId = $request->input('rowId');
+    $cantidad = $request->input('cantidad');
+    Cart::update($rowId, $cantidad);
+    return redirect('/CarroCompra');
+    }
+
 }

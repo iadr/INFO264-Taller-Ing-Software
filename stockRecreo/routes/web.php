@@ -56,6 +56,15 @@ Route::get('/crearProveedor',function(){
   return view('Proveedor.crearProveedor');
 })->name('crearProveedor');
 
+
+////////graficos
+Route::get('grafico','ChartController@graf1')->name('graf1');
+
+Route::post('editarPC', 'ProductoController@editarProductoCarro')->name('editarProductoCarro');
+
+
+
+
 Route::post('/provs','ProveedorController@GuardarNuevoProveedor')->name('GuardarNuevoProveedor');
 
 Route::post('/proveedorEditado','ProveedorController@TerminarEdicionProv')->name('GuardarEdicionProv');

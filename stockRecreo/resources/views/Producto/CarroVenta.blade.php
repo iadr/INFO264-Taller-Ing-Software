@@ -24,10 +24,19 @@
             <p>{{$row->name}}</p>
           </td>
           <td>
-            <form class="" action="#" method="post">
+            <form class="form-inline" action="{{ route('editarProductoCarro') }}" method="post">
+              {{csrf_field()}}
+              <div class="input-group">
               <input class="form-control form-control-sm" type="number" name="cantidad" min="1" max="999" style="width:60px"  value="{{$row->qty}}">
-              <input class="form-control form-control-sm" type="hidden" name="rowId" style="width:60px"  value="{{$row->rowId}}">
+              <input type="hidden" name="rowId" value="{{$row->rowId}}">
+              <div class="input-group-append">
+              <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
+            </div>
+            </div>
             </form>
+
+
+
           </td>
           <td>   ${{$row->price}}</td>
           <td>   ${{$row->subtotal}}</td>
