@@ -30,8 +30,19 @@
                 </div>
                 <div class="col mb-3">
                   <label for="validationCustom02">Categoría</label>
-                  <input type="text" class="form-control" id="validationCustom02" name="categoria" value="{{$res->categoria}}" required>
-                  
+                  <!-- <input type="text" class="form-control" id="validationCustom02" name="categoria" value="{{$res->categoria}}" required> -->
+                  <select class="custom-select" id="validationCustom02" name="categoria" required>
+                  <?php
+                    $categorias = array('juegos de mesa','cartas','puzzles','coleccionables','didacticos','magia','circo','exterior','otros');
+                    foreach ($categorias as $cat) {
+                      if ($cat != $res->categoria) {
+                        echo '<option value="'.$cat.'">'.$cat.'</option>';
+                      } else {
+                        echo '<option value="'.$cat.'" selected>'.$cat.'</option>';
+                      }
+                    }
+                  ?>
+                </select>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
