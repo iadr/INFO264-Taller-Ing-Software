@@ -25,16 +25,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos', 'ProductoController@despliega')->name('productos');
 Route::post('/productos', 'ProductoController@buscar')->name('Busqueda');
 Route::post('/BusquedaAvanzada','ProductoController@bAvanzada')->name('BusquedaAvanzada');
-//Update
-Route::post('/editarProducto','ProductoController@editar')->name('editar');
-Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
-//Create
-Route::get('/crearProducto',function(){
-  return view('Producto.crearProducto');
-})->name('crearProducto');
-Route::post('/prods','ProductoController@GuardarProductoNuevo')->name('GuardarProductoNuevo');
-//"Delete"
-Route::post('eliminarProducto','ProductoController@borrarProducto')->name('borrarProducto');
+
+  //Update
+  Route::post('/editarProducto','ProductoController@editar')->name('editar');
+  Route::post('/productoEditado','ProductoController@TerminarEdicion')->name('GuardarEdicion');
+  //Create
+  Route::get('/crearProducto',function(){
+    return view('Producto.crearProducto');
+  })->name('crearProducto');
+  Route::post('/prods','ProductoController@GuardarProductoNuevo')->name('GuardarProductoNuevo');
+  //"Delete"
+  Route::post('eliminarProducto','ProductoController@borrarProducto')->name('borrarProducto');
+
+
 
 //Carro de Compra
 Route::post('/agregarPC', 'ProductoController@agregarCarrito')->name('agregarCarrito');

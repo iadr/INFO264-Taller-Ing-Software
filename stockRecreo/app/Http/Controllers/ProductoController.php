@@ -9,6 +9,10 @@ use Cart;
 
 class ProductoController extends Controller
 {
+  public function __construct(){
+    $this->middleware('admin',['only'=>['editar','TerminarEdicion','borrarProducto']]);
+  }
+
   public function despliega()
   {
    		$producto = new Producto();

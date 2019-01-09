@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    
+
 
     <!-- Styles -->
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
@@ -24,9 +24,10 @@
 
               <li><a href="/home" class="btn">Inicio</a></li>
               <li><a href="{{ route('productos') }}" class="btn">Administrar Productos</a></li>
+              @if(Auth::user()->isAdmin)
               <li><a href="{{ route('proveedores') }}" class="btn">Administrar Proveedores</a></li>
               <li><a href="{{ route('graf1') }}" class="btn">Generar Estadisticas</a></li>
-
+              @endif
           </ul>
         </div>
       </nav>

@@ -7,6 +7,11 @@ use App\Proveedor;
 
 class ProveedorController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('admin');
+  }
+
    public function desplegarProveedores()
   {
       $proveedor = new Proveedor();
