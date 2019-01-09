@@ -1,52 +1,80 @@
 @extends('layouts.ppa')
 
 @section('content')
+
+
 <html>
   <head>
-    <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['bar']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
       function drawChart() {
 
-        // Create the data table.
-        var data = new google.visualization.DataTable([
-        ['nombre','stock'],
+        var data = google.visualization.arrayToDataTable([
+          ['nombre','stock'],
           @foreach($g as $gs)
             ['{{ $gs->nombre}}',{{$gs->stock}}],
           @endforeach
         ]);
 
         var options = {
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          },
-          bars: 'horizontal' // Required for Material Bar Charts.
+          title: 'My Daily Activities'
         };
 
-        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['nombre','stock'],
+          @foreach($g as $gs)
+            ['{{ $gs->nombre}}',{{$gs->stock}}],
+          @endforeach
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
       }
     </script>
   </head>
-
   <body>
-    <!--Div that will hold the pie chart-->
-    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+    <div class="col mb-3">
+      <label for="bday">Desde:</label>
+      <input type="date" id="aday" name="aday">
+   
+   
+      <label for="bday">Hasta:</label>
+      <input type="date" id="bday" name="bday">
+
+      
+
+    </div>
+
+              
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
   </body>
 </html>
-<!-- 
 
- -->
+
+ <html>
+ 
 @endsection

@@ -109,8 +109,9 @@ public function agregarCarrito(Request $request)
   		$venta = new Venta;
   		$cantidadProductos = Cart::count();
   		$totalRaw = Cart::total();
-  		$total = str_replace('.','', $totalRaw); //para quitar los puntos
+  		$total = str_replace(',','', $totalRaw); //para quitar los puntos
   		$nombreVendedor = $request->input('vendedor');
+      //$time= now();
 
   		//$venta->crearVenta($total,$cantidadProductos);
   		//$idVenta = $venta->crearVenta($total,$cantidadProductos);
