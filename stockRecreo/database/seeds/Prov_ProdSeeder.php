@@ -24,11 +24,17 @@ class Prov_ProdSeeder extends Seeder
       //     "id_producto"=>$faker->randomElement($idProducto)
       //   ]);
       // }
+
       foreach ($idProducto as $prod) {
+        $prov1=$faker->randomElement($idProveedor);
+        $prov2=$faker->randomElement($idProveedor);
+        while ($prov2 == $prov1) {
+          $prov2=$faker->randomElement($idProveedor);
+        }
         DB::table('proveedor_producto')->insert([
-          ["id_proveedor"=>$faker->randomElement($idProveedor),
+          ["id_proveedor"=>$prov1,
           "id_producto"=>$prod],
-          ["id_proveedor"=>$faker->randomElement($idProveedor),
+          ["id_proveedor"=>$prov2,
           "id_producto"=>$prod]
         ]);
       }
