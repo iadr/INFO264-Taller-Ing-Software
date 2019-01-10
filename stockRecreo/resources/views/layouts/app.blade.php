@@ -48,7 +48,7 @@
 
                             <li><a href="{{ url('/') }}">Volver a Inicio</a></li>
                             <!-- <li><a href="{{ route('login') }}">Ingresar</a></li> -->
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
                         @else
                             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
                             <li class="dropdown">

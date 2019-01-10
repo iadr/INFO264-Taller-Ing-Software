@@ -47,6 +47,7 @@ Route::get('/CarroCompra',function(){
 Route::get('cancelarVenta', 'ProductoController@cancelarVenta')->name('cancelarVenta');
 Route::post('eliminarPC', 'ProductoController@eliminarProductoCarro')->name('eliminarProductoCarro');
 Route::post('/ventaFinalizada', 'ProductoController@finalizarVenta')->name('finalizarVenta');
+Route::post('editarPC', 'ProductoController@editarProductoCarro')->name('editarProductoCarro');
 
 
 //proveedor//////////
@@ -58,17 +59,15 @@ Route::post('/editarProveedores', 'ProveedorController@editarProveedor')->name('
 Route::get('/crearProveedor',function(){
   return view('Proveedor.crearProveedor');
 })->name('crearProveedor');
-
-
-////////graficos
-Route::get('grafico','ChartController@graf1')->name('graf1');
-
-Route::post('editarPC', 'ProductoController@editarProductoCarro')->name('editarProductoCarro');
-
-
-
-
 Route::post('/provs','ProveedorController@GuardarNuevoProveedor')->name('GuardarNuevoProveedor');
 
 Route::post('/proveedorEditado','ProveedorController@TerminarEdicionProv')->name('GuardarEdicionProv');
 Route::post('eliminarProveedor','ProveedorController@borrarProveedor')->name('borrarProveedor');
+
+////////graficos
+Route::get('grafico','ChartController@graf1')->name('graf1');
+
+/////USUARIOS
+Route::get('/usuarios',function(){
+  return view('crearUsuario');
+})->name('crearUsuario');

@@ -22,9 +22,9 @@
         <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
 </head>
 <body>
-  
+
   <!-- <nav class="navbar navbar-light fixed-top bg-light p-0 shadow"> -->
-  <nav class="navbar navbar-light fixed-top bg-light p-0 shadow">
+  <nav class="navbar navbar-light fixed-top bg-light p-0 navbar-static-top">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{url('/home')}}">{{ config('app.name', 'Hora del Recreo') }}</a>
     <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
     <ul class="navbar-nav px-3">
@@ -37,24 +37,46 @@
             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
         @else
 
-                    <li>
-                        <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Cerrar Sesión
-                        </a>
+              <li>
+                <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Cerrar Sesión
+              </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+            </li>
         @endguest
       </li>
     </ul>
 
   </nav>
   @auth
-  @include('layouts.sidebar')
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+
+                <li><a href="/home" class="btn">Inicio</a></li>
+                <li><a href="{{ route('productos') }}" class="btn">Administrar Productos</a></li>
+                @if(Auth::user()->isAdmin)
+                <li><a href="{{ route('proveedores') }}" class="btn">Administrar Proveedores</a></li>
+                <li><a href="{{ url('/usuarios')}}" class="btn">Registrar Vendedor</a></li>
+                @endif
+                <li><a href="{{ route('graf1') }}" class="btn">Generar Estadisticas</a></li>
+            </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <br>
+          @yield('content')
+        </main>
+      </div>
+        </div>
   @endauth
 
 
