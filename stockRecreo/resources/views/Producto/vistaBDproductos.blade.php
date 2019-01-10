@@ -18,9 +18,11 @@
           </button>
         </div>
       </div>
+      @if(Auth::user()->isAdmin())
       <div class="col-md-2">
         <a class="btn btn-danger" href="{{route('crearProducto')}}">Crear Producto <i class="fas fa-plus-square"></i></a>
       </div>
+      @endif
       <div class="col-md-3">
           <a href="{{route('desplegarCarro')}}" class="btn btn-primary btn-success ml-auto">
             <i class="fas fa-shopping-cart"></i> Carro de Compras
@@ -76,9 +78,11 @@
               <th>Categoría</th>
               <th>Precio</th>
               <th>Stock</th>
+              @if(Auth::user()->isAdmin())
               <th>Editar</th>
-              <th>Vender</th>
               <th>Borrar</th>
+              @endif
+              <th>Vender</th>
             </tr>
           </thead>
           @foreach($prod as $producto)
@@ -88,35 +92,35 @@
             <td>{{ $producto->categoria}}</td>
             <td>{{ $producto->precio }}</td>
             <td>{{ $producto->stock }}</td>
+            @if(Auth::user()->isAdmin())
             <td>
               <form action="{{route('editar')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name='idProducto' value="{{$producto->id}}">
-                 <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
+                <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
               </form>
-            </td>
-            <td>
-
-              <form class="form-inline" action="{{route('agregarCarrito')}}" method="POST">
-                {{csrf_field()}}
-                <input type="hidden" name='identificador' value="{{$producto->id}}">
-                <input type="hidden" name='nombre' value="{{$producto->nombre}}">
-                <input type="hidden" name='precio' value="{{$producto->precio}}">
-                 <!-- <input type="submit" value="Buy"> -->
-                 <div class="input-group">
-                   <input type="number" class="form-control form-control-sm" min="1" max="1000" style="width:60px;" name='cantidad' value="1">
-                   <div class="input-group-append">
-                     <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
-                   </div>
-                 </div>
-              </form>
-
             </td>
             <td>
               <form action="{{route('borrarProducto')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name='idProducto' value="{{$producto->id}}">
                  <button type="submit" name="edit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+              </form>
+            </td>
+            @endif
+            <td>
+              <form class="form-inline" action="{{route('agregarCarrito')}}" method="POST">
+                {{csrf_field()}}
+                <input type="hidden" name='identificador' value="{{$producto->id}}">
+                <input type="hidden" name='nombre' value="{{$producto->nombre}}">
+                <input type="hidden" name='precio' value="{{$producto->precio}}">
+                <!-- <input type="submit" value="Buy"> -->
+                <div class="input-group">
+                  <input type="number" class="form-control form-control-sm" min="1" max="1000" style="width:60px;" name='cantidad' value="1">
+                  <div class="input-group-append">
+                    <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
+                  </div>
+                </div>
               </form>
             </td>
           </tr>

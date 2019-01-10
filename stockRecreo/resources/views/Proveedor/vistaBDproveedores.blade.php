@@ -16,9 +16,11 @@
           </form>
         </div>
       </div>
+      @if(Auth::user()->isAdmin())
       <div class="col-md-2">
         <a class="btn btn-danger" href="{{route('crearProveedor')}}">Crear Proveedor <i class="fas fa-plus-square"></i></a>
-      </div>      
+      </div>
+      @endif
   </div>
 
   <div class="">
@@ -49,7 +51,7 @@
                  <button type="submit" name="edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
               </form>
             </td>
-            
+
             <td>
               <form action="{{route('borrarProveedor')}}" method="POST">
                 {{csrf_field()}}
