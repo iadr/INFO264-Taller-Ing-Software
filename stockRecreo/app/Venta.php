@@ -17,7 +17,7 @@ class Venta extends Model
 		*/
     	
     	$id = DB::table('ventas')
-    		->insert(['monto' => $total, 'cantidadProductos' => $cantidadProductos, 
+    		->insertGetId(['monto' => $total, 'cantidadProductos' => $cantidadProductos, 
     			'created_at' => now(), 'nombreVendedor' => $nombreVendedor]);
     	
     		return $id;

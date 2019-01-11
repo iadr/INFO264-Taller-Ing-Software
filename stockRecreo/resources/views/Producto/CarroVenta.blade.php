@@ -24,7 +24,9 @@
             <p>{{$row->name}}</p>
           </td>
           <td>
+            
             <form class="form-inline" action="{{ route('editarProductoCarro') }}" method="post">
+            
               {{csrf_field()}}
               <div class="input-group">
               <input class="form-control form-control-sm" type="number" name="cantidad" min="1" max="999" style="width:60px"  value="{{$row->qty}}">
@@ -33,8 +35,9 @@
               <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button>
             </div>
             </div>
+            
             </form>
-
+          
 
 
           </td>
@@ -51,20 +54,9 @@
       @endforeach
     </tbody>
     <tfoot>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-        <td>Subtotal   </td>
-        <td>{{Cart::subtotal()}}</td>
-      </tr>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-        <td>Iva   </td>
-        <td>{{Cart::tax()}}</td>
-      </tr>
-      <tr>
         <td colspan="2">&nbsp;</td>
         <td>Total   </td>
-        <td>{{Cart::total()}}</td>
+        <td>{{Cart::subtotal()}}</td>
       </tr>
     </tfoot>
   </table>
@@ -83,5 +75,6 @@
       </form>
     </div>
   </div>
+
 </div>
 @endsection
