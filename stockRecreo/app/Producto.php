@@ -45,10 +45,11 @@ class Producto extends Model
                 ->update(['nombre'=>$nombre,'categoria'=>$categoria,'precio'=>$precio,'stock'=>$stock,'updated_at'=>now()]);
     }
 
-    public function crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock){
-      DB::table('productos')->insert(
+    public function crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock,$proveedor){
+      $idProducto=DB::table('productos')->insertGetId(
         ['codigo'=>$codigo,'nombre'=>$nombre,'categoria'=>$categoria,'edadminima'=>$edad,'precio'=>$precio,'stock'=>$stock,'activo'=>True,'created_at'=>now(),'updated_at'=>now()]
       );
+      DB::table('proveedor_producto')->insert(['id_producto'=>$idProducto,'id_proveedor'=>$proveedor]);
     }
 
     public function borrarProducto($id){

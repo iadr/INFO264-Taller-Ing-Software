@@ -47,7 +47,7 @@
                 </div>
                    <div class="col mb-3">
                   <label for="validationCustom03">Edad Minima</label>
-                  <input type="number" class="form-control" id="validationCustom03" min="1" max="16" name="edadminima" value="" required>
+                  <input type="number" class="form-control" id="validationCustom03" min="1" max="20" name="edadminima" value="" required>
                   <div class="invalid-feedback">
                     Ingrese una edad válida
                   </div>
@@ -75,8 +75,8 @@
 
                 <div class="col mb-3">
                   <label for="validationCustom04">Proveedor</label>
-                  <select class="custom-select " id="validationCustom04" name="Proveedor" required>
-                    <option selected novalue="">Proveedor</option>
+                  <select class="custom-select " id="validationCustom04" name="proveedor" required>
+                    <option selected value="" disabled hidden>Seleccione un Proveedor</option>
                     <?php
                     use Illuminate\Support\Facades\DB;
                     $proveedores=DB::table('proveedores')->select('id','nombre')->get();

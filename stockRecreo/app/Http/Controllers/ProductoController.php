@@ -66,7 +66,7 @@ class ProductoController extends Controller
     $stock=$request->input('stock');
     $prod=new Producto;
     $prod->editarProducto($id,$nombre,$categoria,$precio,$stock);
-    return redirect()->route('productos') ;
+    return redirect('/productos');
   }
 
   public function GuardarProductoNuevo(Request $request)
@@ -77,16 +77,17 @@ class ProductoController extends Controller
     $edad=$request->input('edadminima');
     $precio=$request->input('precio');
     $stock=$request->input('stock');
+    $proveedor=$request->input('proveedor');
     $prod=new Producto;
-    $prod->crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock);
-    return redirect()->route('productos');
+    $prod->crearProducto($codigo,$nombre,$categoria,$edad,$precio,$stock,$proveedor);
+    return redirect('/productos');
 
   }
   public function borrarProducto(Request $request){
     $id=$request->input('idProducto');
     $prod=new Producto;
     $prod->borrarProducto($id);
-    return redirect()->route('productos');
+    return back();
 
   }
 
