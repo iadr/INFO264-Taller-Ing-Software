@@ -20,12 +20,20 @@
             </div>
         </div>
     </div> -->
-    <div class="row justify-content-center align-items-center">
-      <!-- <script src="https://cdn.htmlgames.com/embed.js?game=YukonSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
+      <div class="row justify-content-end">
+        <p>
+        <button class="btn btn-sm btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        ¿Aburrido?
+        </button>
+        </p>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="collapse " id="collapseExample">
+          <div class="card card-body justify-content-center align-items-center">
+            <script src="https://cdn.htmlgames.com/embed.js?game=ClassicSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
+          </div>
+        </div>
     </div>
-    <div> -->
-<script src="https://cdn.htmlgames.com/embed.js?game=ClassicSolitaire&amp;width=800&amp;height=480&amp;bgcolor=white"></script>
-</div>
 
 </div>
 @endsection

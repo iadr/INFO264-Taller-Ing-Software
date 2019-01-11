@@ -16,15 +16,15 @@
                 <div class="col mb-3">
                   <label for="validationCustom01">Codigo del Producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="codigo" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Por favor ingrese el código del producto
                   </div>
                 </div>
                 <div class="col mb-3">
                   <label for="validationCustom01">Nombre del Producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="nombre" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
                 <div class="col mb-3">
@@ -41,15 +41,15 @@
                     <option value="otros">Otros</option>
                   </select>
                   <!-- <input type="text" class="form-control" id="validationCustom02" name="categoria" value="" required> -->
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Por favor seleccione una categoría
                   </div>
                 </div>
                    <div class="col mb-3">
                   <label for="validationCustom03">Edad Minima</label>
-                  <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="edadminima" value="" required>
+                  <input type="number" class="form-control" id="validationCustom03" min="1" max="16" name="edadminima" value="" required>
                   <div class="invalid-feedback">
-                    Please provide a valid city.
+                    Ingrese una edad válida
                   </div>
                 </div>
 
@@ -61,7 +61,7 @@
                     </div>
                     <input type="number" class="form-control" id="validationCustomUsername" min="100" max="999999" name="precio" value="" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
-                      Please choose a username.
+                      Ingrese un precio válido.
                     </div>
                   </div>
                 </div>
@@ -69,9 +69,28 @@
                   <label for="validationCustom03">Stock</label>
                   <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="stock" value="" required>
                   <div class="invalid-feedback">
+                    Por favor ingrese un stock válido.
+                  </div>
+                </div>
+
+                <div class="col mb-3">
+                  <label for="validationCustom04">Proveedor</label>
+                  <select class="custom-select " id="validationCustom04" name="Proveedor" required>
+                    <option selected novalue="">Proveedor</option>
+                    <?php
+                    use Illuminate\Support\Facades\DB;
+                    $proveedores=DB::table('proveedores')->select('id','nombre')->get();
+                    foreach ($proveedores as $prov) {
+                      echo '<option value="'.$prov->id.'">'.$prov->nombre.'</option>';
+                    }
+                    ?>
+                  </select>
+                  <div class="invalid-feedback">
                     Please provide a valid city.
                   </div>
                 </div>
+
+
                 <button class="btn btn-primary" type="submit">Submit form</button>
               </div>
             </form>

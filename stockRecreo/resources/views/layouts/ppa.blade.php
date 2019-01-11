@@ -24,7 +24,7 @@
 <body>
 
   <!-- <nav class="navbar navbar-light fixed-top bg-light p-0 shadow"> -->
-  <nav class="navbar navbar-light fixed-top bg-light p-0 navbar-static-top">
+  <nav class="navbar navbar-light fixed-top bg-light shadow p-0 navbar-static-top">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{url('/home')}}">{{ config('app.name', 'Hora del Recreo') }}</a>
     <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
     <ul class="navbar-nav px-3">
@@ -65,9 +65,9 @@
                 <li><a href="{{ route('productos') }}" class="btn">Administrar Productos</a></li>
                 @if(Auth::user()->isAdmin)
                 <li><a href="{{ route('proveedores') }}" class="btn">Administrar Proveedores</a></li>
-                <li><a href="{{ url('/usuarios')}}" class="btn">Registrar Vendedor</a></li>
+                <li><a href="{{ url('/usuarios')}}" class="btn">Gestionar Vendedor</a></li>
                 @endif
-                <li><a href="{{ route('graf1') }}" class="btn">Generar Estadisticas</a></li>
+                <li><a href="{{ route('graf1') }}" class="btn">Estadisticas</a></li>
             </ul>
           </div>
         </nav>
