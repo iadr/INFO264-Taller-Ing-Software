@@ -12,7 +12,7 @@ class Producto extends Model
     //
     public function mostrarTodo()
     {
-        return DB::table('productos')->where('activo', True)->get();
+        return DB::table('productos')->where('activo', True)->orderBy('nombre')->get();
 
     }
 
@@ -28,14 +28,15 @@ class Producto extends Model
     }
     public function busquedaPorCodigo($codigo)
     {
-      return DB::table('productos')->where('codigo', 'like','%'.$codigo.'%')->get();
+      return DB::table('productos')->where('codigo', 'like','%'.$codigo)->get();
     }
     public function busquedaPorCampos($array)
     {
       return DB::table('productos')
               ->where('categoria', 'like','%'.$array['categoria'].'%')
               ->where('precio', '<=',$array['precio'])
-              ->where('edadminima', '>=',$array['edad'])
+              ->where('edadminima', '>=',$array['edadMin'])
+              ->where('edadminima', '<=',$array['edadMax'])
               ->get();
     }
 

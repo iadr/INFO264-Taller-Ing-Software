@@ -48,7 +48,11 @@
             </div>
             <div class="input-group input-group-sm col-md-2 mb-2">
               <label for="busqueda" class="sr-only">Edad Mínima</label>
-              <input type="number" class="form-control" min="1" max="21" placeholder="Edad Mínima" name="edad">
+              <input type="number" class="form-control" min="1" max="18" placeholder="Edad Mínima" name="edadMin">
+            </div>
+            <div class="input-group input-group-sm col-md-2 mb-2">
+              <label for="busqueda" class="sr-only">Edad Máxima</label>
+              <input type="number" class="form-control" min="1" max="18" placeholder="Edad Máxima" name="edadMax">
             </div>
             <select class="custom-select custom-select-sm col-md-4 mb-2" name="categoria">
               <option value="" disable selected>Categoría</option>
@@ -76,6 +80,7 @@
               <th>Código</th>
               <th>Nombre</th>
               <th>Categoría</th>
+              <th>Edad</th>
               <th>Precio</th>
               <th>Stock</th>
               @if(Auth::user()->isAdmin())
@@ -90,6 +95,7 @@
             <td>{{ $producto->codigo}}</td>
             <td>{{ $producto->nombre }}</td>
             <td>{{ $producto->categoria}}</td>
+            <td>{{ $producto->edadminima}}</td>
             <td>{{ $producto->precio }}</td>
             <td>{{ $producto->stock }}</td>
             @if(Auth::user()->isAdmin())
