@@ -85,6 +85,9 @@
                     }
                     ?>
                   </select>
+                  <div class="col-md-3">
+                    <a class="btn btn-sm btn-danger" href="{{route('crearProveedor')}}">Crear Proveedor</a>
+                  </div>
                   <div class="invalid-feedback">
                     Please provide a valid city.
                   </div>

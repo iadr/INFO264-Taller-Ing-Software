@@ -107,11 +107,14 @@
               </form>
             </td>
             <td>
-              <form action="{{route('borrarProducto')}}" method="POST">
-                {{csrf_field()}}
-                <input type="hidden" name='idProducto' value="{{$producto->id}}">
-                 <button type="submit" name="edit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-              </form>
+              <a tabindex="0" class="btn btn-sm btn-outline-danger" role="button" data-toggle="popover" data-trigger="focus" title="¿Estás seguro?" ><i class="fas fa-trash-alt"></i></a>
+              <div class="hide" style="display:none;" id="popover-content">
+                <form action="{{route('borrarProducto')}}" method="POST">
+                  {{csrf_field()}}
+                  <input type="hidden" name="idProducto" value="{{$producto->id}}">
+                  <button type="submit" name="edit" class="btn btn-block btn-sm btn-danger">borrar</button>
+                </form>
+              </div>
             </td>
             @endif
             <td>
@@ -136,4 +139,6 @@
   </div>
 </div>
 </div>
+
+
 @endsection

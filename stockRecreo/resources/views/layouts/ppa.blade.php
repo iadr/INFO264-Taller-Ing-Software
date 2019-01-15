@@ -88,7 +88,16 @@
     </script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+          html:true,
+          content: function() {
+          return $('#popover-content').html();
+        }
+        });
+    });
+    </script>
     <!-- Icons -->
     <script src="{{asset('js/feather.min.js')}}"></script>
     <script>
