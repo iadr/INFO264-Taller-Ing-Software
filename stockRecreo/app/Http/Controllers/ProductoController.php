@@ -99,8 +99,10 @@ public function agregarCarrito(Request $request)
   	$id = $request->input('identificador');
   	$nombre = $request->input('nombre');
   	$precio = $request->input('precio');
-  	$cantidad = $request->input('cantidad');
-  	Cart::add( $id , $nombre , $cantidad ,$precio );
+    $cantidad = $request->input('cantidad');
+  	$cantMax = $request->input('stock');
+    // return $request->all();
+  	Cart::add( $id , $nombre , $cantidad ,$precio,['cantMax'=>$cantMax]);
   	return redirect('/productos');
   }
 

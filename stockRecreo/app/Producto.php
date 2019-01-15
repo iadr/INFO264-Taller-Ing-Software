@@ -12,8 +12,11 @@ class Producto extends Model
     //
     public function mostrarTodo()
     {
-        return DB::table('productos')->where('activo', True)->orderBy('nombre')->get();
-
+        return DB::table('productos')
+          ->where('activo', True)
+          ->where('stock','>',0)
+          ->orderBy('nombre')
+          ->get();
     }
 
     public function busquedaProductos($termino)

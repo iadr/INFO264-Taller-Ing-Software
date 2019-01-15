@@ -123,11 +123,11 @@
                 <input type="hidden" name='identificador' value="{{$producto->id}}">
                 <input type="hidden" name='nombre' value="{{$producto->nombre}}">
                 <input type="hidden" name='precio' value="{{$producto->precio}}">
-                <!-- <input type="submit" value="Buy"> -->
+                <input type="hidden" name='stock' value="{{$producto->stock}}">
                 <div class="input-group">
-                  <input type="number" class="form-control form-control-sm" min="1" max="1000" style="width:60px;" name='cantidad' value="1">
+                  <input type="number" class="form-control form-control-sm" min="1" max="{{$producto->stock}}" style="width:60px;" name='cantidad' value="1">
                   <div class="input-group-append">
-                    <button type="submit" name="Buy" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
+                    <button type="submit" class="btn btn-sm btn-outline-success"><i class="fas fa-cart-plus"></i></button>
                   </div>
                 </div>
               </form>
