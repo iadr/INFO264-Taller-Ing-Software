@@ -20,7 +20,12 @@
 
         <!-- Custom styles for this template -->
         <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
-</head>
+      <style>
+      th {
+          cursor: pointer;
+      }
+    </style>
+  </head>
 <body>
 
   <!-- <nav class="navbar navbar-light fixed-top bg-light p-0 shadow"> -->
@@ -74,6 +79,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <br>
           @yield('content')
+
         </main>
       </div>
         </div>
@@ -82,6 +88,7 @@
 
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    
     <script src="{{asset('js/jquery-3.3.1.slim.min.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
       window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
@@ -110,5 +117,7 @@
     <!-- Graphs -->
     <script src="{{asset('js/Chart.min.js')}}"></script>
     <script src="{{asset('js/charts.js')}}"></script>
+    @yield('javascript')
+    
 </body>
 </html>
