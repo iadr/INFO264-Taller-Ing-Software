@@ -97,6 +97,9 @@
         }
         });
     });
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
     </script>
     <!-- Icons -->
     <script src="{{asset('js/feather.min.js')}}"></script>

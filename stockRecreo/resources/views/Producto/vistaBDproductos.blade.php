@@ -38,7 +38,7 @@
           <div class="form-row">
             <div class="input-group input-group-sm col-md-2 mb-2">
               <label for="codigo" class="sr-only">Codigo</label>
-              <input type="text" class="form-control" placeholder="Código" name="codigo">
+              <input type="text" class="form-control" placeholder="Código" name="codigo" data-toggle="tooltip" data-placement="bottom" title="Ingrese los últimos dígitos del código">
             </div>
             <div class="input-group input-group-sm col-md-2 mb-2">
               <div class="input-group-prepend">
@@ -46,11 +46,11 @@
               </div>
               <input type="number" class="form-control" min="100" max="1000000" aria-label="precio maximo" placeholder="Precio Máximo" name="precio">
             </div>
-            <div class="input-group input-group-sm col-md-2 mb-2">
+            <div class="input-group input-group-sm col mb-2">
               <label for="busqueda" class="sr-only">Edad Mínima</label>
               <input type="number" class="form-control" min="1" max="18" placeholder="Edad Mínima" name="edadMin">
             </div>
-            <div class="input-group input-group-sm col-md-2 mb-2">
+            <div class="input-group input-group-sm col mb-2">
               <label for="busqueda" class="sr-only">Edad Máxima</label>
               <input type="number" class="form-control" min="1" max="18" placeholder="Edad Máxima" name="edadMax">
             </div>
