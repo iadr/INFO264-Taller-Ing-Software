@@ -54,7 +54,7 @@
               <label for="busqueda" class="sr-only">Edad Máxima</label>
               <input type="number" class="form-control" min="1" max="18" placeholder="Edad Máxima" name="edadMax">
             </div>
-            <select class="custom-select custom-select-sm col-md-4 mb-2" name="categoria">
+            <select class="custom-select custom-select-sm col-md-3 mb-2" name="categoria">
               <option value="" disable selected>Categoría</option>
               <?php
               use Illuminate\Support\Facades\DB;
@@ -73,10 +73,10 @@
   </div>
 
   <div class="">
-    
+
       <div class="table-responsive">
         <table id="tablaProductos" class="table table-sm table-hover">
-          
+
             <tr>
               <th>Código</th>
               <th onclick="sortTable(1)">Nombre</th>
@@ -90,7 +90,7 @@
               @endif
               <th>Vender</th>
             </tr>
-          
+
           @foreach($prod as $producto)
           <tr>
             <td>{{ $producto->codigo}}</td>
@@ -150,7 +150,7 @@ function sortTable(n) {
   table = document.getElementById("tablaProductos");
   switching = true;
   //Set the sorting direction to ascending:
-  dir = "asc"; 
+  dir = "asc";
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
@@ -177,7 +177,7 @@ function sortTable(n) {
             shouldSwitch= true;
             break;
           }
-        } 
+        }
         else if (dir == "desc") {
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
             //if so, mark as a switch and break the loop:
@@ -193,7 +193,7 @@ function sortTable(n) {
             shouldSwitch = true;
             break;
           }
-        } 
+        }
         else if (dir == "desc") {
           if (Number(x.innerHTML) < Number(y.innerHTML)) {
             shouldSwitch = true;
@@ -208,7 +208,7 @@ function sortTable(n) {
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
       //Each time a switch is done, increase this count by 1:
-      switchcount ++;      
+      switchcount ++;
     } else {
       /*If no switching has been done AND the direction is "asc",
       set the direction to "desc" and run the while loop again.*/

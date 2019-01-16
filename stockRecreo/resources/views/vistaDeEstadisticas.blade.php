@@ -21,7 +21,7 @@
 
         var options = {
           chart: {
-            title: '4 productos mas vendidos',
+            title: 'Productos mas vendidos',
           }
         };
 
@@ -80,20 +80,20 @@
     </script>
   </head>
   <body>
-    
+
     <div class="container">
       <div class="row">
        <form class="form-inline ml-auto" action="{{ route('graf2') }}" method="POST">
         {{csrf_field()}}
-        
-      <label for="bday">Desde:</label>
-      <input type="date" id="aday" name="desde"> 
-   
-      <label for="bday">Hasta:</label>
-      <input type="date" id="bday" name="hasta">
-     
 
-     
+      <label for="bday">Desde:</label>
+      <input type="date" id="aday" name="desde" required>
+
+      <label for="bday">Hasta:</label>
+      <input type="date" id="bday" name="hasta" value="<?php echo date('Y-m-d');?>">
+
+
+
         <button type="submit"  class="btn btn-primary mb-2 btn-success " >Generar nuevas Estadisticas</button>
       </form>
       </div>
@@ -103,12 +103,12 @@
       <div class="">
       <div class="table-responsive">
          @foreach($g as $gk)
-            
-<h1>{{$gk->total_vendido}}</h1>
-         
+
+         <h1>{{$gk->total_vendido}}</h1>
+
           @endforeach
-       
-        <h1>5 Productos más vendidos</h1>
+
+        <h1>Productos más vendidos</h1>
         <table class="table table-sm table-hover" BORDER=5>
           <thead>
             <tr>
@@ -123,9 +123,9 @@
            @endforeach
          </table>
       </div>
-  </div>     
-  
-     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>         
+  </div>
+
+     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
   </body>
   <body>
@@ -133,8 +133,8 @@
   </body>
 
 </html>
-    
+
 
  <html>
- 
+
 @endsection
