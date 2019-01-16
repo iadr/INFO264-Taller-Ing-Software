@@ -76,7 +76,7 @@
 
       <div class="table-responsive">
         <table id="tablaProductos" class="table table-sm table-hover">
-
+          <thead>
             <tr>
               <th>Código</th>
               <th onclick="sortTable(1)">Nombre</th>
@@ -90,7 +90,7 @@
               @endif
               <th>Vender</th>
             </tr>
-
+          </thead>
           @foreach($prod as $producto)
           <tr>
             <td>{{ $producto->codigo}}</td>
