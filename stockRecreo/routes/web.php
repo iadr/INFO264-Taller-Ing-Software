@@ -67,6 +67,8 @@ Route::post('eliminarProveedor','ProveedorController@borrarProveedor')->name('bo
 ////////graficos
 Route::get('grafico','ChartController@graf1')->name('graf1');
 
+Route::post('graficobuscado','ChartController@graf2')->name('graf2');
+
 /////USUARIOS
 Route::get('/usuarios',function(){
   return view('crearUsuario');
