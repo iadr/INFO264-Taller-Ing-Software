@@ -15,10 +15,15 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['fecha','monto'],
-          @foreach($vpd as $vxd)
-            ['{{ $vxd->fecha}}',{{$vxd->monto}}],
-          @endforeach
-        ]);
+          @if(filled($vpd ))
+             @foreach($vpd as $vxd)
+              ['{{ $vxd->fecha}}',{{$vxd->monto}}],
+            @endforeach
+          @else
+            ['0',0],
+          @endif
+          ]);
+
 
         var options = {
 
@@ -42,11 +47,15 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['fecha','monto'],
-          @foreach($vd as $vdd)
-            ['{{ $vdd->fecha}}',{{$vdd->monto}}],
-          @endforeach
-        ]);
+          ['fecha','monto'],        
+        @if(filled($vd))
+             @foreach($vd as $vdd)
+             ['{{ $vdd->fecha}}',{{$vdd->monto}}],
+            @endforeach
+          @else
+            ['0',0],
+          @endif
+          ]);
 
         var options = {
           title: 'ventas del día',
@@ -67,11 +76,16 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['fecha','cantida vendida'],
-          @foreach($CatProd as $cp)
-            ['{{ $cp->fecha}}',{{$cp->Ventas}}],
-          @endforeach
+          @if(filled($CatProd))
+            @foreach($CatProd as $cp)
+             ['{{ $cp->fecha}}',{{$cp->Ventas}}],
+            @endforeach
+          @else
+            ['0',0],
+          @endif
+         
         ]);
-
+              console.log(data);
         var options = {
           title: 'cantidad de productos vendidos en el periodo',
           curveType: 'function',
@@ -96,10 +110,10 @@
         {{csrf_field()}}
 
       <label for="bday">Desde:</label>
-      <input type="date" id="aday" name="desde" required>
+      <input type="date" id="aday" name="desde" max="<?php echo date('Y-m-d');?>" required>
 
       <label for="bday">Hasta:</label>
-      <input type="date" id="bday" name="hasta" value="<?php echo date('Y-m-d');?>">
+      <input type="date" id="bday" name="hasta" value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d');?>">
 
 
         <button type="submit"  class="btn btn-primary mb-2 btn-success " >Generar nuevas Estadisticas</button>
