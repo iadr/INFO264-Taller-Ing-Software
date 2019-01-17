@@ -14,7 +14,7 @@ class Detalle_VentaSeeder extends Seeder
     public function run()
     {
       $faker = Faker::create();
-      $numeroVentas = 100;
+      $numeroVentas = 300;
       $arrayVendedor = array('Sebastian Alarcon','Cristian Ordoñez','Israel Diaz','Fernando Reyes');
       $idProductos = DB::table('productos')->pluck('id');
     
@@ -22,7 +22,7 @@ class Detalle_VentaSeeder extends Seeder
       for($i=0;$i<$numeroVentas;$i++){
         $montoVenta = 0;
         $nombreVendedor = $faker->randomElement($arrayVendedor);
-        $fechaVenta = $faker->dateTimeBetween($startDate = '-1 year', $endDate = '+1 year',
+        $fechaVenta = $faker->dateTimeBetween($startDate = '-1 year', $endDate = now(),
                                               $timezone = null);
         $numeroProductosPorVenta = $faker->numberBetween(1,30); //Se venderán máx 30 prod. distintos por venta
         $cantidadProductosVenta = 0;
