@@ -24,7 +24,7 @@ class Detalle_VentaSeeder extends Seeder
         $nombreVendedor = $faker->randomElement($arrayVendedor);
         $fechaVenta = $faker->dateTimeBetween($startDate = '-1 year', $endDate = now(),
                                               $timezone = null);
-        $numeroProductosPorVenta = $faker->numberBetween(1,30); //Se venderán máx 30 prod. distintos por venta
+        $numeroProductosPorVenta = $faker->numberBetween(1,5); //Se venderán máx 30 prod. distintos por venta
         $cantidadProductosVenta = 0;
         $arrayProductos = array(); //Vaciamos el array
 
@@ -37,7 +37,7 @@ class Detalle_VentaSeeder extends Seeder
             $precioProductoBD = DB::table('productos')->select('precio')
                                   ->where('id', $idProductoVenta)->first();
             $precioProducto = $precioProductoBD->precio;
-            $numeroUnidadesProducto = $faker->numberBetween(1,15); //Se venderan max 15 unidades por producto
+            $numeroUnidadesProducto = $faker->numberBetween(1,10); //Se venderan max 15 unidades por producto
             $montoVenta = $montoVenta + ($precioProducto * $numeroUnidadesProducto);
             $cantidadProductosVenta = $cantidadProductosVenta + $numeroUnidadesProducto;
             $arrayProductos[$idProductoVenta]['precio'] = $precioProducto;
@@ -48,7 +48,7 @@ class Detalle_VentaSeeder extends Seeder
             $precioProductoBD = DB::table('productos')->select('precio')
                                   ->where('id', $idProductoVenta)->first();
             $precioProducto = $precioProductoBD->precio;
-            $numeroUnidadesProducto = $faker->numberBetween(1,15);
+            $numeroUnidadesProducto = $faker->numberBetween(1,10);
             $montoVenta = $montoVenta + ($precioProducto * $numeroUnidadesProducto);
             $cantidadProductosVenta = $cantidadProductosVenta + $numeroUnidadesProducto;
             $arrayProductos[$idProductoVenta]['precio'] = $precioProducto;
