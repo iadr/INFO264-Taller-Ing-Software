@@ -23,8 +23,7 @@
     <?php
     use Illuminate\Support\Facades\DB;
     $stockCritico= DB::table('productos')->where('stock','<=',2)
-    ->where('activo', True)
-    ->orderBy('nombre')->get();
+    ->where('activo', True)->orderBy('stock','ASC')->get();
     if(filled($stockCritico)){
       ?>
       @foreach($stockCritico as $critico)
