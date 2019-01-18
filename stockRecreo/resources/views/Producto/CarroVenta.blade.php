@@ -10,9 +10,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>producto</th>
+            <th>Producto</th>
             <th>Cantidad</th>
-            <th>Precio Unitario</th>
+            <th>Precio unitario</th>
             <th>Subtotal</th>
             <th>Eliminar</th>
         </tr>
@@ -64,7 +64,7 @@
     <div class="row">
 
       <form class="form-inline ml-auto"  action="{{route('cancelarVenta')}}" >
-        <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar Venta</button>
+        <button type="submit"  class="btn btn-danger  ml-auto " >Cancelar venta</button>
       </form>
 
       <form class="form-inline ml-auto" action="{{ route('finalizarVenta') }}" method="POST">

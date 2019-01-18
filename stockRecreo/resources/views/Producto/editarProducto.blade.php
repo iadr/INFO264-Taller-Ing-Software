@@ -24,8 +24,8 @@
                 <div class="col mb-3">
                   <label for="validationCustom01">Nombre del Producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="nombre" value="{{$res->nombre}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
                 <div class="col mb-3">
@@ -43,8 +43,8 @@
                     }
                   ?>
                 </select>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Por favor, seleccione una categoría
                   </div>
                 </div>
                 <div class="col mb-3">
@@ -55,7 +55,7 @@
                     </div>
                     <input type="number" class="form-control" id="validationCustomUsername" min="100" max="999999" name="precio" value="{{$res->precio}}" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
-                      Please choose a username.
+                      Ingrese un precio válido.
                     </div>
                   </div>
                 </div>
@@ -63,10 +63,10 @@
                   <label for="validationCustom03">Stock</label>
                   <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="stock" value="{{$res->stock}}" required>
                   <div class="invalid-feedback">
-                    Please provide a valid city.
+                    Por favor, ingrese un stock válido.
                   </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Guardar</button>
               </div>
             </form>
 

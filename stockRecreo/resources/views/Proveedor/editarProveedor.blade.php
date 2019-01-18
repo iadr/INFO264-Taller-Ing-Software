@@ -8,7 +8,7 @@
 
         <div class="card col-md-6 bg-light">
           <div class="card-body">
-            <h5 class="card-title">Editar Proveedor</h5>
+            <h5 class="card-title">Editar proveedor</h5>
 
             <form class="needs-validation" action="{{route('GuardarEdicionProv')}}" method="POST" novalidate>
               {{csrf_field()}}
@@ -17,43 +17,43 @@
                 <div class="col mb-3">
                   <label for="validationCustom01">Nombre del Proveedor</label>
                   <input type="text" class="form-control" id="validationCustom01" name="nombre" value="{{$res->nombre}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
                 <div class="col mb-3">
                   <label for="validationCustom02">Direccion</label>
                   <input type="text" class="form-control" id="validationCustom02" name="direccion" value="{{$res->direccion}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese una dirección válida
                   </div>
                 </div>
 
                  <div class="col mb-3">
                   <label for="validationCustom02">Representante</label>
                   <input type="text" class="form-control" id="validationCustom02" name="representante" value="{{$res->representante}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
 
                  <div class="col mb-3">
-                  <label for="validationCustom02">Telefono</label>
+                  <label for="validationCustom02">Teléfono</label>
                   <input type="text" class="form-control" id="validationCustom02" name="telefono" value="{{$res->telefono}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un teléfono válido
                   </div>
                 </div>
 
                  <div class="col mb-3">
                   <label for="validationCustom02">Email</label>
                   <input type="text" class="form-control" id="validationCustom02" name="email" value="{{$res->email}}" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un email válido
                   </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Guardar</button>
               </div>
             </form>
 

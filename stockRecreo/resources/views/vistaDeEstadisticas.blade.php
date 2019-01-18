@@ -116,7 +116,7 @@
       <input type="date" id="bday" name="hasta" value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d');?>">
 
 
-        <button type="submit"  class="btn btn-primary mb-2 btn-success " >Generar nuevas Estadisticas</button>
+        <button type="submit"  class="btn btn-primary mb-2 btn-success " >Generar nuevas estadisticas</button>
       </form>
       </div>
     </div>

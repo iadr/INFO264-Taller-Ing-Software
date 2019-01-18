@@ -7,7 +7,7 @@
 
         <div class="card col-md-6 bg-light">
           <div class="card-body">
-            <h5 class="card-title">Nuevo Proveedor</h5>
+            <h5 class="card-title">Nuevo proveedor</h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
             <form class="needs-validation" action="{{route('GuardarNuevoProveedor')}}" method="POST" novalidate>
               {{csrf_field()}}
@@ -15,46 +15,46 @@
               <div class="form-group">
                 
                 <div class="col mb-3">
-                  <label for="validationCustom01">Nombre del Proveedor</label>
+                  <label for="validationCustom01">Nombre del proveedor</label>
                   <input type="text" class="form-control" id="validationCustom01" name="nombre" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
 
                 <div class="col mb-3">
-                  <label for="validationCustom01">Direccion del Proveedor</label>
+                  <label for="validationCustom01">Direccion del proveedor</label>
                   <input type="text" class="form-control" id="validationCustom01" name="direccion" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese una dirección válida
                   </div>
                 </div>
                 
                 <div class="col mb-3">
                   <label for="validationCustom02">Representante</label>
                   <input type="text" class="form-control" id="validationCustom02" name="representante" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un nombre válido
                   </div>
                 </div>
                 
                 <div class="col mb-3">
-                  <label for="validationCustom01">Telefono</label>
+                  <label for="validationCustom01">Teléfono</label>
                   <input type="text" class="form-control" id="validationCustom01" name="telefono" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un teléfono válido
                   </div>
                 </div>
 
                 <div class="col mb-3">
                   <label for="validationCustom01">Email</label>
                   <input type="text" class="form-control" id="validationCustom01" name="email" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div class="invalid-feedback">
+                    Ingrese un email válido
                   </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Crear proveedor</button>
               </div>
             </form>
 

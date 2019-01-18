@@ -37,7 +37,7 @@
         <!-- Authentication Links -->
         @guest
 
-            <li><a href="{{ url('/') }}">Vuelta a Inicio</a></li>
+            <li><a href="{{ url('/') }}">Vuelta a inicio</a></li>
             <!-- <li><a href="{{ route('login') }}">Ingresar</a></li> -->
             <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
         @else
@@ -46,7 +46,7 @@
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                Cerrar Sesión
+                Cerrar sesión
               </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -7,21 +7,21 @@
 
         <div class="card col-md-6 bg-light">
           <div class="card-body">
-            <h5 class="card-title">Producto Nuevo</h5>
+            <h5 class="card-title">Producto nuevo</h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
             <form class="needs-validation" action="{{route('GuardarProductoNuevo')}}" method="POST" novalidate>
               {{csrf_field()}}
 
               <div class="form-group">
                 <div class="col mb-3">
-                  <label for="validationCustom01">Codigo del Producto</label>
+                  <label for="validationCustom01">Codigo del producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="codigo" value="" required>
                   <div class="invalid-feedback">
-                    Por favor ingrese el código del producto
+                    Por favor, ingrese el código del producto
                   </div>
                 </div>
                 <div class="col mb-3">
-                  <label for="validationCustom01">Nombre del Producto</label>
+                  <label for="validationCustom01">Nombre del producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="nombre" value="" required>
                   <div class="invalid-feedback">
                     Ingrese un nombre válido
@@ -42,11 +42,11 @@
                   </select>
                   <!-- <input type="text" class="form-control" id="validationCustom02" name="categoria" value="" required> -->
                   <div class="invalid-feedback">
-                    Por favor seleccione una categoría
+                    Por favor, seleccione una categoría
                   </div>
                 </div>
                    <div class="col mb-3">
-                  <label for="validationCustom03">Edad Minima</label>
+                  <label for="validationCustom03">Edad mínima</label>
                   <input type="number" class="form-control" id="validationCustom03" min="1" max="20" name="edadminima" value="" required>
                   <div class="invalid-feedback">
                     Ingrese una edad válida
@@ -69,14 +69,14 @@
                   <label for="validationCustom03">Stock</label>
                   <input type="number" class="form-control" id="validationCustom03" min="1" max="1000" name="stock" value="" required>
                   <div class="invalid-feedback">
-                    Por favor ingrese un stock válido.
+                    Por favor, ingrese un stock válido.
                   </div>
                 </div>
 
                 <div class="col mb-3">
                   <label for="validationCustom04">Proveedor</label>
                   <select class="custom-select " id="validationCustom04" name="proveedor" required>
-                    <option selected value="" disabled hidden>Seleccione un Proveedor</option>
+                    <option selected value="" disabled hidden>Seleccione un proveedor</option>
                     <?php
                     use Illuminate\Support\Facades\DB;
                     $proveedores=DB::table('proveedores')->select('id','nombre')->get();
@@ -86,15 +86,15 @@
                     ?>
                   </select>
                   <div class="col-md-3">
-                    <a class="btn btn-sm btn-danger" href="{{route('crearProveedor')}}">Crear Proveedor</a>
+                    <a class="btn btn-sm btn-danger" href="{{route('crearProveedor')}}">Crear proveedor</a>
                   </div>
                   <div class="invalid-feedback">
-                    Please provide a valid city.
+                    
                   </div>
                 </div>
 
 
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Crear producto</button>
               </div>
             </form>
 

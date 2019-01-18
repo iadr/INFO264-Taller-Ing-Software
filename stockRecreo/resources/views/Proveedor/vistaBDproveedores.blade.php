@@ -18,7 +18,7 @@
       </div>
       @if(Auth::user()->isAdmin())
       <div class="col-md-2">
-        <a class="btn btn-danger" href="{{route('crearProveedor')}}">Crear Proveedor <i class="fas fa-plus-square"></i></a>
+        <a class="btn btn-danger" href="{{route('crearProveedor')}}">Crear proveedor <i class="fas fa-plus-square"></i></a>
       </div>
       @endif
   </div>
@@ -29,9 +29,9 @@
           <thead>
             <tr>
               <th onclick="sortTable(0)">Nombre</th>
-              <th onclick="sortTable(1)">Direccion</th>
+              <th onclick="sortTable(1)">Dirección</th>
               <th onclick="sortTable(2)">Representante</th>
-              <th>Telefono</th>
+              <th>Teléfono</th>
               <th onclick="sortTable(4)">Email</th>
               <th>Editar</th>
               <th>Borrar</th>
