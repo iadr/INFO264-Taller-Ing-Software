@@ -70,7 +70,7 @@
                 <li><a href="{{ route('productos') }}" class="btn">Administrar Productos</a></li>
                 @if(Auth::user()->isAdmin)
                 <li><a href="{{ route('proveedores') }}" class="btn">Administrar Proveedores</a></li>
-                <li><a href="{{ url('/usuarios')}}" class="btn">Gestionar Vendedor</a></li>
+                <li><a href="{{ url('/usuarios')}}" class="btn">Registrar Vendedor</a></li>
                 @endif
                 <li><a href="{{ route('graf1') }}" class="btn">Estadisticas</a></li>
             </ul>
@@ -88,7 +88,7 @@
 
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    
+
     <script src="{{asset('js/jquery-3.3.1.slim.min.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
       window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
@@ -118,6 +118,6 @@
     <script src="{{asset('js/Chart.min.js')}}"></script>
     <script src="{{asset('js/charts.js')}}"></script>
     @yield('javascript')
-    
+
 </body>
 </html>

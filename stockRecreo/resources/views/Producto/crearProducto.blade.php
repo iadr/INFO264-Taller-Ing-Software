@@ -14,7 +14,7 @@
 
               <div class="form-group">
                 <div class="col mb-3">
-                  <label for="validationCustom01">Codigo del producto</label>
+                  <label for="validationCustom01">Código del producto</label>
                   <input type="text" class="form-control" id="validationCustom01" name="codigo" value="" required>
                   <div class="invalid-feedback">
                     Por favor, ingrese el código del producto
@@ -34,7 +34,7 @@
                     <option value="cartas">Cartas</option>
                     <option value="puzzles">Puzzles</option>
                     <option value="coleccionables">Coleccionables</option>
-                    <option value="didacticos">Didacticos</option>
+                    <option value="didacticos">Didácticos</option>
                     <option value="magia">Magia</option>
                     <option value="circo">Circo</option>
                     <option value="exterior">Exterior</option>
@@ -89,7 +89,7 @@
                     <a class="btn btn-sm btn-danger" href="{{route('crearProveedor')}}">Crear proveedor</a>
                   </div>
                   <div class="invalid-feedback">
-                    
+
                   </div>
                 </div>
 
