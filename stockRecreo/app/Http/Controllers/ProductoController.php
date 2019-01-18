@@ -30,7 +30,7 @@ class ProductoController extends Controller
 
   public function bAvanzada(Request $req){
     $producto=new Producto;
-    $array = array('precio' => 999999,'categoria' => '','edadMin' => 1,'edadMin' => 18);
+    $array = array('precio' => 999999,'categoria' => '','edadMin' => 1,'edadMax' => 18);
     if ($req->filled('codigo')) {
       $cod=$req->input('codigo');
       $prod=$producto->busquedaPorCodigo($cod);
@@ -49,6 +49,7 @@ class ProductoController extends Controller
       $array['categoria']=$req->input('categoria');
     }
     $prod=$producto->busquedaPorCampos($array);
+    // return $prod;
     return view('Producto.vistaBDproductos', compact('prod'));
   }
 

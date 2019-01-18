@@ -38,8 +38,7 @@ class Producto extends Model
       return DB::table('productos')
               ->where('categoria', 'like','%'.$array['categoria'].'%')
               ->where('precio', '<=',$array['precio'])
-              ->where('edadminima', '>=',$array['edadMin'])
-              ->where('edadminima', '<=',$array['edadMax'])
+              ->whereBetween('edadminima',array($array['edadMin'],$array['edadMax']))
               ->get();
     }
 
