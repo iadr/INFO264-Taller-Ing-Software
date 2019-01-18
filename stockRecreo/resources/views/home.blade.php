@@ -4,21 +4,6 @@
 <link rel="stylesheet" href="{{asset('css/panel.css')}}">
 <div class="container">
 
-      <?php
-      use Illuminate\Support\Facades\DB;
-      $stockCritico= DB::table('productos')->where('stock','<=',2)
-          ->where('activo', True)
-        	->orderBy('nombre')->get();
-      if(filled($stockCritico)){
-        ?>
-      @foreach($stockCritico as $critico)
-      @if($critico->stock==0)
-      <div class="alert alert-danger" role="alert">El producto {{$critico->nombre}} se ha agotado</div>
-      @else
-      <div class="alert alert-sm alert-warning" role="alert">Solo quedan {{$critico->stock}} unidades de {{$critico->nombre}}</div>
-      @endif
-      @endforeach
-      <?php } ?>
 
 
       <div class="row justify-content-end">
@@ -35,6 +20,21 @@
           </div>
         </div>
     </div>
+    <?php
+    use Illuminate\Support\Facades\DB;
+    $stockCritico= DB::table('productos')->where('stock','<=',2)
+    ->where('activo', True)
+    ->orderBy('nombre')->get();
+    if(filled($stockCritico)){
+      ?>
+      @foreach($stockCritico as $critico)
+      @if($critico->stock==0)
+      <div class="alert alert-danger" role="alert">El producto {{$critico->nombre}} se ha agotado</div>
+      @else
+      <div class="alert alert-sm alert-warning" role="alert">Solo quedan {{$critico->stock}} unidades de {{$critico->nombre}}</div>
+      @endif
+      @endforeach
+    <?php } ?>
 
 </div>
 @endsection
